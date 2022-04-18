@@ -1,0 +1,107 @@
+{
+    "Bulbasaur": {
+       "id": "0",
+       "pokedex_num": "1",
+       "type1": "Grass",
+       "type2": "Poison",
+       "generation": "1",
+       "stats": {
+          "hp": "45",
+          "attack": "49",
+          "defense": "49",
+          "sp_attack": "65",
+          "sp_defense": "65",
+          "speed": "45"
+       }
+    },
+    "Ivysaur": {
+       "id": "1",
+       "pokedex_num": "2",
+       "type1": "Grass",
+       "type2": "Poison",
+       "generation": "1",
+       "stats": {
+          "hp": "60",
+          "attack": "62",
+          "defense": "63",
+          "sp_attack": "80",
+          "sp_defense": "80",
+          "speed": "60"
+       }
+    },
+    "Venusaur": {
+       "id": "2",
+       "pokedex_num": "3",
+       "type1": "Grass",
+       "type2": "Poison",
+       "generation": "1",
+       "stats": {
+          "hp": "80",
+          "attack": "82",
+          "defense": "83",
+          "sp_attack": "100",
+          "sp_defense": "100",
+          "speed": "80"
+       }
+    },
+    "Mega Venusaur": {
+       "id": "3",
+       "pokedex_num": "3",
+       "type1": "Grass",
+       "type2": "Poison",
+       "generation": "1",
+       "stats": {
+          "hp": "80",
+          "attack": "100",
+          "defense": "123",
+          "sp_attack": "122",
+          "sp_defense": "120",
+          "speed": "80"
+       }
+    },
+    "Charmander": {
+       "id": "4",
+       "pokedex_num": "4",
+       "type1": "Fire",
+       "type2": "",
+       "generation": "1",
+       "stats": {
+          "hp": "39",
+          "attack": "52",
+          "defense": "43",
+          "sp_attack": "60",
+          "sp_defense": "50",
+          "speed": "65"
+       }
+    },
+    "Charmeleon": {
+       "id": "5",
+       "pokedex_num": "5",
+       "type1": "Fire",
+       "type2": "",
+       "generation": "1",
+       "stats": {
+          "hp": "58",
+          "attack": "64",
+          "defense": "58",
+          "sp_attack": "80",
+          "sp_defense": "65",
+          "speed": "80"
+       }
+    },
+    "Charizard": {
+       "id": "6",
+       "pokedex_num": "6",
+       "type1": "Fire",
+       "type2": "Flying",
+       "generation": "1",
+       "stats": {
+          "hp": "78",
+          "attack": "84",
+          "defense": "78",
+          "sp_attack": "109",
+          "sp_defense": "85",
+          "speed": "100"
+       }
+    }
+}
