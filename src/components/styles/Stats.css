@@ -1,0 +1,19 @@
+.stat-bar {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 19px;
+    background-color: white;
+}
+
+.stat {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.stat p {
+    width: 30px;
+    color: white;
+}

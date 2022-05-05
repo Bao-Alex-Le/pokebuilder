@@ -4,7 +4,9 @@ import PokemonTeamBuilder from './components/PokemonTeamBuilder';
 
 function App() {
   return (
-    <PokemonTeamBuilder/>
+    <div className="app">
+      <PokemonTeamBuilder/>
+    </div>
   );
 }
 
