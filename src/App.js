@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './loader.js';
 import PokemonTeamBuilder from './components/PokemonTeamBuilder';
 
 function App() {

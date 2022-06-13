@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/Pokemon.css';
-import backgroundImg from '../img/pokemonicons.png';
+import pokemonIcon from '../img/pokemonicons.png';
 
 /**
  * Individual icon card for specific pokemon
@@ -26,12 +26,12 @@ class Pokemon extends React.Component {
             "display": this.borderDisplay,
             "justifyContent": "center",
             "alignItems": "center",
+            "boxSizing": "border-box",
             "background": backgroundStyle,
-            "width": "auto",
-            "height": "auto",
-            "margin": "3px",
+            "width": "100%",
+            "height": "100%",
             "borderRadius": "15px",
-            "padding": "2px"
+            "padding": "5px"
         }
 
         // css styling for icon using css sprites
@@ -40,7 +40,7 @@ class Pokemon extends React.Component {
             height: '30px',
             margin: '0 auto 3px',
             display: 'block',
-            background: 'url(' + backgroundImg + ')',
+            background: 'url(' + pokemonIcon + ')',
             backgroundPosition: `-${left}px -${top}px`,
             cursor: 'pointer'
         };
@@ -53,12 +53,12 @@ class Pokemon extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-            {this.props.visible == true && // if pokemon is already in party, component will not render
+        let pokemon;
+        if (this.props.visible) {
+            pokemon = (
                 <div className='pokemonBorder' style={this.borderStyle}>
                     <div className={`${this.props.pokemon} pokemon`} onClick={this.handlePokemonSelect}>
-                        <span className='sprite' style={this.imgStyle}></span>
+                        <span className='pkmnSprite' style={this.imgStyle}></span>
                         <span className='types'>
                             { this.props.type1
                                 ? <img src={ require(`../img/types/${this.props.type1}.png`) }/>
@@ -74,9 +74,12 @@ class Pokemon extends React.Component {
                         </div>
                     </div>
                 </div>
-            }
-            </div>
-        );
+            );
+        } else {
+            pokemon = null;
+        }
+
+        return pokemon;
     }
 }
 

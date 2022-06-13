@@ -94,6 +94,7 @@ class Stats extends React.Component {
 
         return (
             <div className='stat-info'>
+                <div className='stat-title'>Stats</div>
                 {statList}
             </div>
         );

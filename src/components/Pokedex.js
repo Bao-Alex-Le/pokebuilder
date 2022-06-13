@@ -23,7 +23,7 @@ class Pokedex extends React.Component {
             const type2Colour = type2 ? typeColours[type2.toLowerCase()][0] : '';
             
             // renders pokemon component in pokedex list if not already selected in party
-            const visible = Boolean(!Object.values(this.props.party).find(pkmn => pkmn == pokemon));
+            const visible = Boolean(!Object.values(this.props.party).find(slot => slot.name == pokemon));
 
             return (
                 <Pokemon key={id} 
@@ -41,8 +41,10 @@ class Pokedex extends React.Component {
         });
 
         return (
-            <div className="pokedex">
-                {pokemonList}
+            <div className='pokedex-container'>
+                <div className="pokedex">
+                    {pokemonList}
+                </div>
             </div>
         );
     }

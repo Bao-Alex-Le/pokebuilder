@@ -1,19 +1,50 @@
+.stat-info {
+    width: auto;
+    height: auto;
+    margin: 8px 2px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-title {
+    color:mintcream;
+    font-weight: 500;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+    display: inline;
+}
+
 .stat-bar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     width: 200px;
     height: 19px;
-    background-color: white;
 }
 
 .stat {
-    display: flex;
+    width: auto;
+    display: inline-flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin: 5px;
+    margin: 2px;
 }
 
 .stat p {
     width: 30px;
-    color: white;
+    color: mintcream;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+@media only screen and (min-width: 800px) {
+    .stat-info {
+        width: auto;
+        height: auto;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

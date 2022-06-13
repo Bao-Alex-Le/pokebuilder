@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.pkmn-moves {
+    margin: 5px;
+}
+
+.move.slot {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    margin: 3px;
+    font-size: 12px;
+    font-family: Arial;
+}
