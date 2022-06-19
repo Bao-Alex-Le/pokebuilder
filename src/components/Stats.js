@@ -49,7 +49,7 @@ class Stats extends React.Component {
         const average = this.statDict[stat]['average'];
         const median  = this.statDict[stat]['median'];
         const highest = this.statDict[stat]['highest'];
-        statVal < 0 ? statVal=0 : false;
+        statVal = statVal < 0 ? 0 : false;
         if (statVal <= average) {
             return Math.round((statVal/average * 50) * 10) / 10;
         } else {
@@ -58,8 +58,8 @@ class Stats extends React.Component {
     }
 
     getBarColor(barVal) {
-        barVal < 0   ? barVal=0   : false;
-        barVal > 100 ? barVal=100 : false;
+        barVal = barVal < 0   ? 0   : false;
+        barVal = barVal > 100 ? 100 : false;
         if (barVal <= 50) {
             return `rgb(${200}, ${parseInt( 200 * barVal/50 )}, 0)`
         } else {
@@ -69,16 +69,18 @@ class Stats extends React.Component {
 
     render() {
         const stats = this.props.stats;
+        console.log(stats);
         const statList = Object.entries(this.props.stats).map((statData, id) => {
             const stat = statData[0];
             const statValue = parseInt(statData[1]);
             const barVal = this.getBarVal(stat, statValue);
             //const highest = this.statDict[stat]['highest'];
             //const barVal = Math.round(statValue / highest * 100 * 10) / 10;
+            const barCol = this.getBarColor(barVal);
             const statBarStyle = {
                 width: `${barVal}%`,
                 height: '50%',
-                backgroundColor: this.getBarColor(barVal)
+                backgroundColor: barCol
             }
 
             return (
