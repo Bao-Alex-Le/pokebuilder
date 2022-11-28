@@ -7,6 +7,10 @@
     border-radius: 10px;
 }
 
+.party.pkmn.\31 {
+    margin: 0 5px 3px 5px;
+}
+
 .party.pkmn.empty {
     display: inline-flex;
     width: auto;
@@ -19,7 +23,7 @@
 .party.empty.slot {
     width: auto;
     height: auto;
-    border: 1px solid dimgray;
+    border: 2px solid dimgray;
     border-radius: 10px;
     display: inline-flex;
     align-items: center;
@@ -29,15 +33,15 @@
 
 .party.empty.slot:hover {
     cursor: pointer;
-    border: 1px solid lightseagreen;
-    box-shadow: 0 0 5px lightseagreen;
+    border: 2px solid mintcream;
+    box-shadow: 0 0 5px mintcream;
     transition: all 0.1s ease-out;
 }
 
 .party.empty.slot:focus {
     cursor: pointer;
-    border: 1px solid lightseagreen;
-    box-shadow: 0 0 5px lightseagreen;
+    border: 2px solid mintcream;
+    box-shadow: 0 0 5px mintcream;
     transition: all 0.1s ease-out;
     outline: none;
 }
@@ -238,7 +242,8 @@
     font-size: 13px;
 }
 
-.row {
+.top-row,
+.bottom-row {
     display: flex;
     flex-wrap: nowrap;
 }

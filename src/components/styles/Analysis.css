@@ -1,0 +1,446 @@
+.analysis {
+    height: 100%;
+    width: 100%;
+    background-color: #141c16;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analysis-container-outer {
+    background-color: #3b3b3b;
+    height: 99%;
+    width: 99%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.analysis-container {
+    height: 98%;
+    width: 98%;
+    overflow: auto;
+}
+
+.table-party-types {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.analysis-container h2 {
+    color: mintcream;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+.defense-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.close-placeholder {
+    width: 60px;
+}
+
+.close-analysis {
+    width: 40px;
+    height: 40px;
+    padding: 20px 0 0 0;
+    margin: 0 20px 0 0;
+    color: mintcream;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='mintcream' class='bi bi-arrow-left-square' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z'/></svg>");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.close-analysis:hover {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='mintcream' class='bi bi-arrow-left-square-fill' viewBox='0 0 16 16'><path d='M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z'/></svg>");
+    cursor: pointer;
+}
+
+.analysis-container h4 {
+    color: mintcream;
+    text-align: center;
+    margin: 0 0 3px 0;
+}
+
+.defense {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.defense-table {
+    display: flex;
+    justify-content: center;
+    background-color: dimgray;
+    width: fit-content;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+.table-headers {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.table-header {
+    width: auto;
+    margin: 1px;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-header {
+    width: auto;
+    margin: 1px;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-header img {
+    max-height: 20px;
+}
+
+.table-header.pokeball,
+.table-header.label {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    color: mintcream;
+    font-size: 14px;
+}
+
+.table-header.label {
+    width: 60px;
+    font-weight: bold;
+}
+
+.defense-table-row,
+.row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-sprite {
+    width: auto;
+    margin: 0 1px;
+}
+
+.total-table.label {
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    color: mintcream;
+}
+
+
+.matchup,
+.cell {
+    width: 32px;
+    margin: 1px;
+    height: 27px;
+    text-align: center;
+    color: mintcream;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.total-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.multiplier {
+    width: fit-content;
+    height: fit-content;
+}
+
+.quarter {
+    border-radius: 3px;
+    background-color: green;
+    padding: 0 5px;
+}
+
+.offense-container {
+    display: flex;
+    justify-content: center;
+}
+
+.super-eff,
+.not-eff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 2em;
+}
+
+.offense-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dimgray;
+    width: fit-content;
+    padding: 3px 5px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.offense-table .row-header {
+    height: 27px;
+}
+
+.half {
+    color: limegreen;
+}
+
+.double {
+    color: red;
+}
+
+.limegreen {
+    color: limegreen;
+}
+
+.mintcream {
+    color: mintcream;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.orangered {
+    color: orangered;
+}
+
+.quadruple {
+    border-radius: 3px;
+    background-color: red;
+    padding: 0 7px;
+}
+
+.immune {
+    border-radius: 3px;
+    background-color: dimgray;
+    padding: 0 7px;
+    color: mintcream;
+}
+
+.defence-table-row div{
+    margin: 2px;
+}
+
+/* Best Moves */
+.best-moves-container {
+    display: flex;
+    justify-content: center;
+}
+
+.best-moves {
+    display: flex;
+    max-width: 90%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.best-move-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.best-move-deftype {
+    height: 22px;
+    background-color: orange;
+    background-size: contain;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.best-move-deftype img {
+    border-top-left-radius: 5px;
+}
+
+.best-move {
+    background-color: dimgray;
+    width: auto;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.best-move-name {
+    width: auto;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+    color: mintcream;
+}
+
+.best-move-type {
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 5px;
+}
+
+.best-move-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.best-move-stats {
+    display: flex;
+    margin: 0 5px;
+    color: mintcream;
+}
+
+.best-move-stats .pow,
+.best-move-stats .acc {
+    display: flex;
+    flex-direction: column;
+}
+
+.best-pow,
+.best-acc {
+    font-size: 12px;
+}
+
+.best-multiplier {
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0 5px 0 0;
+    padding: 1px 4px;
+    background-color:#3b3b3b;
+    border-radius: 5px;
+}
+
+.no-best-moves {
+    color: mintcream;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Stats */
+.stat-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: mintcream;
+    font-weight: bold;
+    max-width: 800px;
+    margin: 0 0 10px 0;
+}
+
+.best-stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.stat-cell {
+    display: flex;
+    flex-direction: column;
+    background-color: dimgray;
+    margin: 3px;
+    padding: 3px 7px 0 7px;
+    border-radius: 10px;
+}
+
+.stat-meter {
+    display: inline-flex;
+    align-items: center;
+    width: 180px;
+    height: 15px;
+    background-color: #3b3b3b;
+    border-radius: 10px;
+    margin: 0 0 3px 0;
+    padding: 0 5px;
+}
+
+/***   Desktop   ***/
+@media only screen and (min-width: 1500px) {
+    .defense-table {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-headers {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .table-header {
+        width: auto;
+        margin: 0 1px;
+        text-align: center;
+        font-family: 'Noto Sans', sans-serif;
+        
+    }
+
+    .defense-table-row,
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .table-header.pokeball,
+    .table-header.label {
+        width: 40px;
+        text-align: center;
+        color: mintcream;
+        font-size: 14px;
+    }
+
+    .total-table.label {
+        width: 60px;
+        text-align: center;
+        color: mintcream;
+    }
+
+    .table-header.label {
+        width: 60px;
+    }
+
+    .offense-table {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .offense-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

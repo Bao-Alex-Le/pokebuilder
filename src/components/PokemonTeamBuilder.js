@@ -1,7 +1,10 @@
-import React, { forwardRef } from 'react';
-import { act } from 'react-dom/test-utils';
+import React, { useState, useEffect, forwardRef } from 'react';
+import $ from 'jquery';
 import Party from './Party';
 import Pokedex from './Pokedex';
+import Analysis from './Analysis';
+import pokedexData from './utils/pokedex.json';
+import { formatTeam, validateTeam } from './utils/teamUtils';
 import './styles/PokemonTeamBuilder.css';
 
 class PokemonTeamBuilder extends React.Component {
@@ -15,32 +18,38 @@ class PokemonTeamBuilder extends React.Component {
                 '1': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 },
                 '2': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 },
                 '3': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 },
                 '4': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 },
                 '5': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 },
                 '6': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ''
                 }
                 
             },
@@ -49,23 +58,33 @@ class PokemonTeamBuilder extends React.Component {
                 mode: 'party',
                 pokemon: null,
                 slot: 0,
-                moveSlot: 0
-            }
+                moveSlot: 0,
+                windowHeight: window.innerHeight
+            },
+            dexMode: true,
+            import: false,
+            importText: ''
         }
 
-        /* Pokemon party selection*/
+        // Pokemon party selectio
         this.handlePokemonSelect = this.handlePokemonSelect.bind(this);
         this.handlePartyPkmnSelect = this.handlePartyPkmnSelect.bind(this);
         this.handleReturnClick = this.handleReturnClick.bind(this);
         this.handleRemovePartyPkmn = this.handleRemovePartyPkmn.bind(this);
 
-        /* Move/Item selection */
+        // Move/Item selection
         this.handleShowMoves = this.handleShowMoves.bind(this);
         this.handleMoveSelect = this.handleMoveSelect.bind(this);
         this.handleShowItems = this.handleShowItems.bind(this);
         this.handleItemSelect = this.handleItemSelect.bind(this);
+        this.handleAbilitySelect = this.handleAbilitySelect.bind(this);
 
-        /* Event handlers for focus, resizing, etc. */
+        // Pokedex/Analysis mode selection
+        this.handlePokedexClick = this.handlePokedexClick.bind(this);
+        this.handleAnalysisClick = this.handleAnalysisClick.bind(this);
+        this.handleImportClick = this.handleImportClick.bind(this);
+
+        // Event handlers for focus, resizing, etc.
         this.handleFocusIn = this.handleFocusIn.bind(this);
         this.handleResize = this.handleResize.bind(this);
     }
@@ -73,6 +92,11 @@ class PokemonTeamBuilder extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.handleResize);
         document.addEventListener('focusin', this.handleFocusIn);
+        const view = window.innerWidth <= 800 ? 'mobile' : 'desktop';
+        const newDisplay = this.state.display;
+        newDisplay.view = view;
+        newDisplay.windowHeight = window.innerHeight;
+        this.setState({ newDisplay });
     }
 
     componentWillUnmount() {
@@ -84,16 +108,17 @@ class PokemonTeamBuilder extends React.Component {
         const newDisplay = this.state.display;
         if (window.innerWidth <= 800 && this.state.display.view == 'desktop') {
             newDisplay.view = 'mobile';
-            this.setState({ newDisplay });
         }
         else if (window.innerWidth > 800 && this.state.display.view == 'mobile') {
             newDisplay.view = 'desktop';
-            this.setState({ newDisplay });
+            newDisplay.mode = 'party';
         }
+        newDisplay.windowHeight = window.innerHeight;
+        this.setState({ newDisplay });
     }
 
     handleFocusIn() {
-        // handles focus for selecting pokemon moves/items
+        // handles which element will be in focus when clicked
         const activeClass = document.activeElement.className.split(' ');
         if (activeClass.find(element => element == 'move-slot')) {
             const moveSlot = activeClass[activeClass.length-3];
@@ -122,8 +147,29 @@ class PokemonTeamBuilder extends React.Component {
         }
     }
 
+    handlePokedexClick() {
+        if (!this.state.dexMode) this.setState({dexMode: true});
+    }
+
+    handleAnalysisClick() {
+        if (this.state.dexMode) this.setState({dexMode: false});
+    }
+
+    handleImportClick(newParty) {
+        if (this.state.import && newParty) {
+            this.setState({
+                party: newParty,
+                import: false
+            });
+        }
+        else if (!this.state.import) {
+            this.setState({import: true});
+        }
+    }
+
     handlePokemonSelect(pokemon) {
         const currentParty = Object.values(this.state.party);
+        const ability = pokedexData[pokemon].abilities[0];
 
         if (this.state.display.slot) { 
             // if a party member is currently selected, replaces party member with new pokemon
@@ -134,7 +180,8 @@ class PokemonTeamBuilder extends React.Component {
             newParty[slot] = {
                 name: pokemon,
                 moves: {'1': '', '2': '', '3': '', '4': ''},
-                item: ''
+                item: '',
+                ability: ability
             };
 
             // updates display to return to full party screen
@@ -164,7 +211,8 @@ class PokemonTeamBuilder extends React.Component {
                         '6': {
                             name: pokemon,
                             moves: {'1': '', '2': '', '3': '', '4': ''},
-                            item: ''
+                            item: '',
+                            ability: ability
                         }
                     }
                 });
@@ -173,7 +221,8 @@ class PokemonTeamBuilder extends React.Component {
                 newParty[firstEmptyPartySlot] = {
                     name: pokemon,
                     moves: {'1': '', '2': '', '3': '', '4': ''},
-                    item: ''
+                    item: '',
+                    ability: ability
                 };
                 this.setState({ party: newParty });
             }
@@ -263,10 +312,43 @@ class PokemonTeamBuilder extends React.Component {
         this.setState({ newParty });
     }
 
+    handleAbilitySelect(ability, slot) {
+        const newParty = this.state.party;
+        newParty[slot].ability = ability;
+        this.setState({ newParty })
+    }
+
     render() {
         let teamBuilderDisplay = [];
+        let partyVisibility, pokedexVisibility;
+        if (this.state.display.view == 'desktop') {
+            partyVisibility = 'visible-flex';
+            pokedexVisibility = 'visible-block';
+        } else {
+            if (this.state.display.mode == 'party' || this.state.display.mode == 'moves' || this.state.display.mode == 'items') {
+                partyVisibility = 'visible-flex';
+                pokedexVisibility = 'hidden';
+            } else if (this.state.display.mode == 'pokedex') {
+                partyVisibility = 'hidden';
+                pokedexVisibility = 'visible-block';
+            } 
+            if (!this.state.dexMode) {
+                partyVisibility = 'hidden';
+                pokedexVisibility = 'visible-block';
+            }
+        }
+
         const party = (
-            <Party party={this.state.party} 
+            <div className={`party wrapper ${partyVisibility}`} key='1'>
+                <DexAnalysisMenu dexMode={this.state.dexMode} 
+                    import={this.state.import} 
+                    party={this.state.party}
+                    onPokedexClick={this.handlePokedexClick} 
+                    onAnalysisClick={this.handleAnalysisClick} 
+                    onImportClick={this.handleImportClick} 
+                    key='1'
+                />
+                <Party party={this.state.party}
                     display={this.state.display}
                     onPartyPkmnClick = {this.handlePartyPkmnSelect}
                     onReturnClick    = {this.handleReturnClick}
@@ -275,21 +357,34 @@ class PokemonTeamBuilder extends React.Component {
                     onMoveSelect     = {this.handleMoveSelect}
                     onItemClick      = {this.handleShowItems}
                     onItemSelect     = {this.handleItemSelect}
-                    key='0'
+                    onAbilitySelect  = {this.handleAbilitySelect}
+                    key='2'
                 />
+            </div>
         );
-        const pokedex = ( <Pokedex onPokemonClick={this.handlePokemonSelect} party={this.state.party} key='1'/> );
 
-        if (this.state.display.view == 'desktop') {
-            teamBuilderDisplay.push(party);
-            teamBuilderDisplay.push(pokedex);
+        let pokedexDisplay;
+        if (this.state.dexMode) {
+            pokedexDisplay = ( 
+                <Pokedex 
+                    onPokemonClick={this.handlePokemonSelect} 
+                    party={this.state.party} 
+                    display={this.state.display}
+                    visibility={pokedexVisibility} 
+                    key='2'/> 
+            );
         } else {
-            if (this.state.display.mode == 'party') {
-                teamBuilderDisplay.push(party);
-            } else if (this.state.display.mode == 'pokedex') {
-                teamBuilderDisplay.push(pokedex);
-            }
+            pokedexDisplay = ( 
+                <div className='analysis'>
+                    <Analysis party={this.state.party} 
+                        onCloseClick={this.handlePokedexClick} key='3'
+                    />
+                </div>
+            );
         }
+
+        teamBuilderDisplay.push(party);
+        teamBuilderDisplay.push(pokedexDisplay);
     
         return (
             <div className="team-builder">
@@ -299,20 +394,83 @@ class PokemonTeamBuilder extends React.Component {
     }
 }
 
-export default PokemonTeamBuilder;
+function DexAnalysisMenu(props) {
+    const [importText, setImportText] = useState(formatTeam(props.party));
 
-/*
-<Party party={this.state.party} 
-                    display={this.state.display}
-                    onPartyPkmnClick = {this.handlePartyPkmnSelect}
-                    onReturnClick    = {this.handleReturnClick}
-                    onRemoveClick    = {this.handleRemovePartyPkmn}
-                    onMoveClick      = {this.handleShowMoves}
-                    onMoveSelect     = {this.handleMoveSelect}
-                    onItemClick      = {this.handleShowItems}
-                    onItemSelect     = {this.handleItemSelect}
+    function handlePokedexClick(e) {
+        props.onPokedexClick();
+    }
+
+    function handleAnalysisClick(e) {
+        props.onAnalysisClick();
+    }
+
+    function handleImportClick(e) {
+        let newParty;
+        if (props.import) { // import area is already open, validate team
+            newParty = validateTeam(importText);
+        } else {
+            setImportText(formatTeam(props.party));
+        }
+        props.onImportClick(newParty);
+    }
+
+    function handleImportChange(value) {
+        setImportText(value);
+    }
+
+    const dexClass = props.dexMode ? 'dex-button dex-menu-selected' : 'dex-button';
+    const analysisClass = props.dexMode ? 'analysis-button' : 'analysis-button dex-menu-selected';
+    const importClass = props.import ? 'import-export dex-menu-selected' : 'import-export';
+
+    return (
+        <div className='dex-analysis'>
+            <div className='dex-analysis-menu'>
+                <div className={dexClass} onClick={handlePokedexClick}><div>Pokedex</div></div>
+                <div className={analysisClass} onClick={handleAnalysisClick}><div>Analysis</div></div>
+                <div className={importClass} onClick={handleImportClick}>
+                    <div className='import'></div>
+                    <div className='export'></div>
+                    <div className='import-label'>
+                        <div>Import/</div>
+                        <div>Export</div>
+                    </div>
+                </div>
+            </div>
+            {
+                props.import &&
+                <Importer 
+                    party={props.party} 
+                    onImportChange={handleImportChange} 
+                    onSaveClick={handleImportClick}
+                    importText={importText}
                 />
-                {this.state.display.view == 'desktop'
-                    ? <Pokedex onPokemonClick={this.handlePokemonSelect} party={this.state.party}/>
-                    : null
-                }*/
+            }
+        </div>
+    );
+}
+
+function Importer(props) {
+    useEffect(() => {
+        document.getElementById('import-area').select();
+    }, []);
+
+    function handleImportChange(e) {
+        props.onImportChange(e.target.value);
+    }
+
+    return (
+        <div className='importer'>
+            <textarea 
+                id='import-area'
+                className='import-area' 
+                autoFocus
+                onChange={handleImportChange}
+                value={props.importText}>
+            </textarea>
+            <div className='save-import' onClick={props.onSaveClick}>Save</div>
+        </div>
+    );
+}
+
+export default PokemonTeamBuilder;

@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import Stats from './Stats';
 import './styles/PartyPkmn.css';
 import moveData from './utils/moves.json';
+import items from './utils/items.json';
 
 class PartyPkmn extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class PartyPkmn extends React.Component {
         this.handleReturnClick = this.handleReturnClick.bind(this);
         this.handleRemoveClick = this.handleRemoveClick.bind(this);
         this.handleItemClick = this.handleItemClick.bind(this);
+        this.handleAbilitySelect = this.handleAbilitySelect.bind(this);
 
         this.ref = React.createRef();
     }
@@ -40,6 +42,10 @@ class PartyPkmn extends React.Component {
         this.props.onItemClick(pokemon, slot);
     }
 
+    handleAbilitySelect(e) {
+        this.props.onAbilitySelect(e.target.value, this.props.slot);
+    }
+
     render() {
         const pokemonData = this.props.pokemonData;
 
@@ -47,7 +53,7 @@ class PartyPkmn extends React.Component {
         let imageStyle;
         let abilityList;
         if (pokemonData) {
-            pokemonImgName = this.props.pokemon.replaceAll(':','').replaceAll('%','');
+            pokemonImgName = pokemonData['name'].replaceAll(':','').replaceAll('%','');
             const pokemonImg = require(`../img/HDsprites/${pokemonImgName}.png`).replaceAll(' ', '%20').replaceAll('\'', '%27');
             const justifyContent = this.props.display == 'party' ? 'flex-end' : 'space-between';
 
@@ -56,7 +62,6 @@ class PartyPkmn extends React.Component {
                 height: '120px',
                 margin: '5px',
                 border: '2px solid transparent',
-                borderRadius: '100%',
                 backgroundImage: `url(${pokemonImg})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
@@ -66,9 +71,16 @@ class PartyPkmn extends React.Component {
             }
         
             abilityList = pokemonData['abilities'].map((ability, index) => { 
-                if (ability) return <option key={index} value={ability}>{ability}</option>;
+                if (ability) {
+                    const option = this.props.ability == ability
+                                    ? <option key={index} value={ability} selected>{ability}</option>
+                                    : <option key={index} value={ability}>{ability}</option>
+                    return option;
+                }
             });
         }
+
+        const itemLabel = items[this.props.item] ? items[this.props.item]['name'] : '';
 
         const empty = pokemonData ? 'filled': 'empty';
 
@@ -81,7 +93,7 @@ class PartyPkmn extends React.Component {
                             <div className='remove' onClick={this.handleRemoveClick}></div>
                             <div className="icon sprite name">
                                 <div className='icon-image' style={imageStyle} onClick={this.handlePartyPkmnClick} ref={this.ref} tabIndex='0'></div>
-                                <h5 className='party pkmn-name'>{this.props.pokemon}</h5>
+                                <h5 className='party pkmn-name'>{this.props.name}</h5>
                             </div>
                             { this.props.display == 'party'
                                 ? <div className='return-placeholder'> </div>
@@ -100,7 +112,7 @@ class PartyPkmn extends React.Component {
                             </div>
                             <div className='ability'>
                                 <p className='ability-label'>Ability</p>
-                                <select className='ability-select'>
+                                <select className='ability-select' onChange={this.handleAbilitySelect}>
                                     {abilityList}
                                 </select>
                             </div>
@@ -111,7 +123,7 @@ class PartyPkmn extends React.Component {
                                     ref={this.ref}
                                     tabIndex='0'
                                 >
-                                    <p>{this.props.item}</p>
+                                    <p>{itemLabel}</p>
                                 </div>
                             </div>
                         </div>
@@ -119,8 +131,7 @@ class PartyPkmn extends React.Component {
                             onMoveClick={this.props.onMoveClick}
                             pokemon={this.props.pokemon}
                             moves={this.props.moves}
-                            moveSlot={this.props.moveSlot}
-                            ref={this.props.ref}/>
+                            moveSlot={this.props.moveSlot}/>
                         <Stats stats={pokemonData['stats']}/>
                     </div>
                     : // render placeholder indicating empty party slot
@@ -144,8 +155,7 @@ function Moves(props) {
                     pokemon={props.pokemon}
                     slot={props.slot}
                     onMoveClick={props.onMoveClick}
-                    clicked={true}
-                    ref={props.ref}/>
+                    clicked={true}/>
             );
         } else {
             moveItem = (
@@ -158,17 +168,17 @@ function Moves(props) {
                     clicked={false}/>
             );
         }
-        return moveItem;    
+        return moveItem;
     });
 
     return (
         <div className='pkmn-moves'>
             <div className='move-title'>Moves</div>
             <div className='move-rows'>
-                <div className='top row'>
+                <div className='top-row'>
                     {moveList[0]}{moveList[1]}
                 </div>
-                <div className='bottom row'>
+                <div className='bottom-row'>
                     {moveList[2]}{moveList[3]}
                 </div>
             </div>
@@ -185,7 +195,7 @@ function Move(props) {
     
     useEffect(() => {
         if (props.clicked) {
-            moveSlot.current.focus();
+            //moveSlot.current.focus();
         }
     });
     
@@ -204,7 +214,7 @@ function Move(props) {
                 onClick={handleMoveClick} 
                 tabIndex='0'
             >
-                <div className='move-name'>{props.move}</div>
+                <div className='move-name'>{data['name']}</div>
                 <div className='move-type'>
                     <img src={require(`../img/types/${type}.png`)}/>
                     <img src={require(`../img/types/${category}.png`)}/>

@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PartyPkmn from './PartyPkmn';
 import './styles/Party.css';
 import pokedex from './utils/pokedex.json';
 import itemIcon from '../img/itemicons.png';
 import moves from './utils/moves.json';
+import moveList from './utils/moveList';
 import items from './utils/items.json';
+import learnsets from './utils/learnsets.json';
 
 class Party extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            search: ''
+        }
+
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+    }
+
+    handleSearchChange(query) {
+        this.setState({ search: query.toLowerCase() });
+    }
+
     render() {
         const display = this.props.display;
 
@@ -22,14 +38,18 @@ class Party extends React.Component {
                 const pokemon = slot[1].name ? slot[1].name : null;
                 const moves   = slot[1].moves;
                 const item    = slot[1].item;
+                const ability = slot[1].ability;
                 const pokemonData = pokemon ? pokedex[pokemon] : null;
+                const name = pokemonData ? pokemonData['name'] : null;
 
                 return (
                     <PartyPkmn key={slotNum}
                         slot={slotNum}
                         pokemon={pokemon}
+                        name={name}
                         moves={moves}
                         item={item}
+                        ability={ability}
                         display={display['mode']}
                         pokemonData={pokemonData}
                         onPartyPkmnClick={this.props.onPartyPkmnClick}
@@ -37,6 +57,7 @@ class Party extends React.Component {
                         onRemoveClick={this.props.onRemoveClick}
                         onMoveClick={this.props.onMoveClick}
                         onItemClick={this.props.onItemClick}
+                        onAbilitySelect={this.props.onAbilitySelect}
                     />
                 )
             });
@@ -49,25 +70,50 @@ class Party extends React.Component {
             const slot = display['slot'];
 
             let displayList;
+            let learnsetMoves = [];
+            let allMoves = [];
             if (display['mode'] == 'moves') { // when adding or changing a move
-                displayList = Object.entries(moves).map((move, index) => {
-                    const name     = move[0];
-                    const type     = move[1]['type'];
-                    const category = move[1]['category'];
-                    const power    = move[1]['power'];
-                    const accuracy = move[1]['accuracy'];
+                let key = 0;
+                Object.keys(moves).forEach(move => {
+                    if (move.search(this.state.search) >= 0) {
+                        const moveData = moves[move];
+                        const name     = moveData['name'];
+                        const fname    = moveData['fname'];
+                        const type     = moveData['type'];
+                        const category = moveData['category'];
+                        const power    = moveData['power'];
+                        const accuracy = moveData['accuracy'];
+                        const moveComponent = (
+                            <Move key={key++}
+                                name={name}
+                                fname={fname}
+                                type={type}
+                                category={category}
+                                power={power}
+                                accuracy={accuracy}
+                                onMoveSelect={this.props.onMoveSelect}
+                            />
+                        );
 
-                    return (
-                        <Move key={index}
-                        name={name}
-                        type={type}
-                        category={category}
-                        power={power}
-                        accuracy={accuracy}
-                        onMoveSelect={this.props.onMoveSelect}
-                        />
-                    )
+                        const learnsetList = pokedex[pokemon]['learnset'];
+                        const inLearnset = learnsetList.some(learnsetName => {
+                            if(learnsets[learnsetName]) {
+                                return learnsets[learnsetName]['learnset'][move];
+                            }
+                            return false;
+                        });
+                    
+                        if (inLearnset) {
+                            learnsetMoves.push(moveComponent);
+                        } else {
+                            allMoves.push(moveComponent);
+                        }
+                    }
                 });
+
+                if (learnsetMoves.length) learnsetMoves.unshift(<div className='move-label'>Learnset Moves</div>);
+                if(allMoves.length) allMoves.unshift(<div className='move-label'>All Moves</div>);
+                displayList = learnsetMoves.concat(allMoves);
             } 
             else if (display['mode'] == 'items') { // when adding or changing an item
                 displayList = Object.entries(items).map((item, index) => {
@@ -75,14 +121,16 @@ class Party extends React.Component {
                     const icon = item[1]['spriteNum'];
                     const desc = item[1]['desc'];
 
-                    return (
-                        <Item key={index} 
-                        name={name}
-                        icon={icon}
-                        desc={desc}
-                        onItemSelect={this.props.onItemSelect}
-                        />
-                    )
+                    if (name.toLowerCase().search(this.state.search) >= 0) {
+                        return (
+                            <Item key={index} 
+                            name={name}
+                            icon={icon}
+                            desc={desc}
+                            onItemSelect={this.props.onItemSelect}
+                            />
+                        );
+                    }
                 });
             }
 
@@ -93,6 +141,7 @@ class Party extends React.Component {
                         pokemon={pokemon}
                         moves={this.props.party[slot].moves}
                         item={this.props.party[slot].item}
+                        ability={this.props.party[slot].ability}
                         pokemonData={pokedex[pokemon]}
                         display={display['mode']}
                         moveSlot={display['moveSlot']}
@@ -101,25 +150,106 @@ class Party extends React.Component {
                         onRemoveClick={this.props.onRemoveClick}
                         onMoveClick={this.props.onMoveClick}
                         onItemClick={this.props.onItemClick}
+                        onAbilitySelect={this.props.onAbilitySelect}
                     />
-                    <div className={`${display['mode']}-list`}>{displayList}</div>
+                    <Search handleSearch={this.handleSearchChange}/>
+                    <List display={display['mode']} 
+                        pokemon={pokemon}
+                        search={this.state.search}
+                        onMoveSelect={this.props.onMoveSelect}
+                        onItemSelect={this.props.onItemSelect}
+                    />
                 </div>
             );
         }
 
         return (
-            <div className='party wrapper'>
-                <div className="party display">
-                    {partyDisplay}
-                </div>
+            <div className="party display">
+                {partyDisplay}
             </div>
         );
     }
 }
 
+function List(props) {
+    useEffect(() => {
+        document.getElementById('list').scrollIntoView();
+    });
+
+    let displayList;
+    let learnsetMoves = [];
+    let allMoves = [];
+
+    if (props.display == 'moves') {
+        let key = 0;
+        Object.keys(moves).forEach(move => {
+            if (move.toLowerCase().search(props.search) >= 0) {
+                const moveData = moves[move];
+                const name     = moveData['name'];
+                const fname    = moveData['fname'];
+                const type     = moveData['type'];
+                const category = moveData['category'];
+                const power    = moveData['power'];
+                const accuracy = moveData['accuracy'];
+                const moveComponent = (
+                    <Move key={key++}
+                        name={name}
+                        fname={fname}
+                        type={type}
+                        category={category}
+                        power={power}
+                        accuracy={accuracy}
+                        onMoveSelect={props.onMoveSelect}
+                    />
+                )
+                const learnsetList = pokedex[props.pokemon]['learnset'];
+                const inLearnset = learnsetList.some(learnsetName => {
+                    if(learnsets[learnsetName]) {
+                        return learnsets[learnsetName]['learnset'][move];
+                    }
+                    return false;
+                });
+            
+                if (inLearnset) {
+                    learnsetMoves.push(moveComponent);
+                } else {
+                    allMoves.push(moveComponent);
+                }
+            }
+        })
+
+        if (learnsetMoves.length) learnsetMoves.unshift(<div className='move-label'>Learnset Moves</div>);
+        if(allMoves.length) allMoves.unshift(<div className='move-label'>All Moves</div>);
+        displayList = learnsetMoves.concat(allMoves);
+
+    } else if (props.display == 'items') {
+        displayList = Object.entries(items).map((item, index) => {
+            const name = item[0];
+            const icon = item[1]['spriteNum'];
+            const desc = item[1]['desc']
+            if (name.toLowerCase().search(props.search) >= 0) {
+                return (
+                    <Item key={index} 
+                    name={name}
+                    icon={icon}
+                    desc={desc}
+                    onItemSelect={props.onItemSelect}
+                    />
+                );
+            }
+        });
+    }
+
+    return (
+        <div id='list' className={`${props.display} list`}>
+            {displayList}
+        </div>
+    )
+}
+
 function Move(props) {
     function handleMoveSelect(e) {
-        props.onMoveSelect(props.name);
+        props.onMoveSelect(props.fname);
     }
 
     return (
@@ -156,8 +286,21 @@ function Item(props) {
     return (
         <div className='item' onClick={handleItemSelect}>
             <div className='icon-sprite' style={imgStyle}></div>
-            <div className='item-name'>{props.name}</div>
+            <div className='item-name'>{items[props.name]['name']}</div>
             <p className='item-desc'>{props.desc}</p>
+        </div>
+    );
+}
+
+function Search(props) {
+    function handleSearchChange(e) {
+        props.handleSearch(e.target.value);
+    }
+
+    return (
+        <div className='move-search'>
+            <div className='search-label'>Search</div>
+            <input onChange={handleSearchChange}></input>
         </div>
     );
 }

@@ -3,8 +3,8 @@ import './styles/Pokemon.css';
 import pokemonIcon from '../img/pokemonicons.png';
 
 /**
- * Individual icon card for specific pokemon
- * displays sprite for pokemon with name and type data
+ *  Individual card for pokemon in pokedex
+ *  displays pokemon sprite with name and type data
  */
 
 class Pokemon extends React.Component {
@@ -70,7 +70,7 @@ class Pokemon extends React.Component {
                             }
                         </span>
                         <div className='pkmn-label'>
-                            <p>{this.props.pokemon}</p>
+                            <p>{this.props.name}</p>
                         </div>
                     </div>
                 </div>
