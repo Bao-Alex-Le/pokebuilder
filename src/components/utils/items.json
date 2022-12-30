@@ -1,4 +1,10 @@
 {
+   "abilityshield": {
+      "name": "Ability Shield",
+      "desc": "Holder's Ability cannot be changed by another Pokemon.",
+      "spriteNum": 0,
+      "fname": "abilityshield"
+   },
    "abomasite": {
       "name": "Abomasite",
       "desc": "If held by an Abomasnow, this item allows it to Mega Evolve in battle.",
@@ -43,7 +49,7 @@
    },
    "aguavberry": {
       "name": "Aguav Berry",
-      "desc": "Restores 33% max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
+      "desc": "Restores 1/3 max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use.",
       "spriteNum": 5,
       "fname": "aguavberry"
    },
@@ -106,6 +112,12 @@
       "desc": "If held by an Audino, this item allows it to Mega Evolve in battle.",
       "spriteNum": 617,
       "fname": "audinite"
+   },
+   "auspiciousarmor": {
+      "name": "Auspicious Armor",
+      "desc": "",
+      "spriteNum": 0,
+      "fname": "auspiciousarmor"
    },
    "babiriberry": {
       "name": "Babiri Berry",
@@ -208,6 +220,12 @@
       "desc": "If the holder misses due to accuracy, its Speed is raised by 2 stages. Single use.",
       "spriteNum": 716,
       "fname": "blunderpolicy"
+   },
+   "boosterenergy": {
+      "name": "Booster Energy",
+      "desc": "Activates the Protosynthesis or Quark Drive abilities. Single use.",
+      "spriteNum": 0,
+      "fname": "boosterenergy"
    },
    "bottlecap": {
       "name": "Bottle Cap",
@@ -347,6 +365,12 @@
       "spriteNum": 72,
       "fname": "clawfossil"
    },
+   "clearamulet": {
+      "name": "Clear Amulet",
+      "desc": "Prevents other Pokemon from lowering this Pokemon's stat stages.",
+      "spriteNum": 0,
+      "fname": "clearamulet"
+   },
    "cloversweet": {
       "name": "Clover Sweet",
       "desc": "Evolves Milcery into Alcremie when held and spun around.",
@@ -376,6 +400,12 @@
       "desc": "Can be revived into Tirtouga.",
       "spriteNum": 85,
       "fname": "coverfossil"
+   },
+   "covertcloak": {
+      "name": "Covert Cloak",
+      "desc": "Holder is not affected by the secondary effect of another Pokemon's attack.",
+      "spriteNum": 0,
+      "fname": "covertcloak"
    },
    "crackedpot": {
       "name": "Cracked Pot",
@@ -661,7 +691,7 @@
    },
    "figyberry": {
       "name": "Figy Berry",
-      "desc": "Restores 33% max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
+      "desc": "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use.",
       "spriteNum": 140,
       "fname": "figyberry"
    },
@@ -991,7 +1021,7 @@
    },
    "iapapaberry": {
       "name": "Iapapa Berry",
-      "desc": "Restores 33% max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
+      "desc": "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Def Nature. Single use.",
       "spriteNum": 217,
       "fname": "iapapaberry"
    },
@@ -1193,6 +1223,12 @@
       "spriteNum": 252,
       "fname": "lightclay"
    },
+   "loadeddice": {
+      "name": "Loaded Dice",
+      "desc": "Holder's 5 hit multi-hit attacks will always hit at least 4 times.",
+      "spriteNum": 0,
+      "fname": "loadeddice"
+   },
    "lopunnite": {
       "name": "Lopunnite",
       "desc": "If held by a Lopunny, this item allows it to Mega Evolve in battle.",
@@ -1285,7 +1321,7 @@
    },
    "magoberry": {
       "name": "Mago Berry",
-      "desc": "Restores 33% max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
+      "desc": "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use.",
       "spriteNum": 274,
       "fname": "magoberry"
    },
@@ -1300,6 +1336,12 @@
       "desc": "Cannot be given to or taken from a Pokemon, except by Covet/Knock Off/Thief.",
       "spriteNum": 403,
       "fname": "mail"
+   },
+   "maliciousarmor": {
+      "name": "Malicious Armor",
+      "desc": "",
+      "spriteNum": 0,
+      "fname": "maliciousarmor"
    },
    "manectite": {
       "name": "Manectite",
@@ -1414,6 +1456,12 @@
       "desc": "Holder's Grass-type attacks have 1.2x power.",
       "spriteNum": 292,
       "fname": "miracleseed"
+   },
+   "mirrorherb": {
+      "name": "Mirror Herb",
+      "desc": "When an opposing Pokemon recieves stat boosts, those boosts are copied. Single use.",
+      "spriteNum": 0,
+      "fname": "mirrorherb"
    },
    "mistyseed": {
       "name": "Misty Seed",
@@ -1732,6 +1780,12 @@
       "desc": "If holder has a Psychic move, this item allows it to use a Psychic Z-Move.",
       "spriteNum": 641,
       "fname": "psychiumz"
+   },
+   "punchingglove": {
+      "name": "Punching Glove",
+      "desc": "Holder's punch-based attacks do 1.1x damage and avoid adverse contact effects.",
+      "spriteNum": 0,
+      "fname": "punchingglove"
    },
    "qualotberry": {
       "name": "Qualot Berry",
@@ -2977,7 +3031,7 @@
    },
    "wikiberry": {
       "name": "Wiki Berry",
-      "desc": "Restores 33% max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
+      "desc": "Restores 1/3 max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use.",
       "spriteNum": 538,
       "fname": "wikiberry"
    },

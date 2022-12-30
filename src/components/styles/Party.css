@@ -49,8 +49,9 @@
 }
 
 .move-label {
+    background-color: dimgray;
     display: flex;
-    padding: 2px;
+    padding: 5px 2px;
     margin: 4px 5px;
     box-sizing: content-box;
     justify-content: center;
@@ -103,7 +104,7 @@
 
 .move-search {
     display: flex;
-    margin: 1px 0 5px 5px;
+    margin: 5px 0 5px 5px;
 }
 
 /* Desktop */
@@ -128,6 +129,7 @@
 
     .moves.list,
     .items.list {
+        min-height: 0;
         height: 100%;
         color: white;
         overflow-y: scroll;

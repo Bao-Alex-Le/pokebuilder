@@ -12,11 +12,13 @@ function formatTeam(party) {
             const moveset     = data['moves'];
             const item        = data['item'];
             const ability     = data['ability'];
+            const tera        = data['tera'];
     
             let pokemonText = '';
             pokemonText += `${name}`;
             pokemonText += item ? ` @ ${items[item]['name']}\n` : '\n';
             pokemonText += `Ability: ${ability}\n`;
+            pokemonText += `Tera Type: ${tera}\n`
             Object.keys(moveset).forEach(moveSlot => {
                 const moveName = moveset[moveSlot];
                 if (moveName) {
@@ -38,7 +40,7 @@ function validateTeam(importText) {
     let partySlot = 1;
     let invalid = false;
     splitTeam.forEach(pokemonData => {
-        let name, item='', ability='', pkmnData;
+        let name, item='', ability='', tera='Normal', pkmnData;
         let pkmnMoves = {};
 
         if (pokemonData) {
@@ -84,7 +86,15 @@ function validateTeam(importText) {
                         }
                     });
                 }
-                
+
+                if (split[0].trim().toLowerCase().replaceAll(' ', '') == 'teratype') {
+                    const types = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy'];
+                    const teraType = split[1].trim().toLowerCase().replaceAll(' ', '');
+                    const type = types.find(type => {
+                        if (type.toLowerCase() == teraType) return true;
+                    });
+                    tera = type ? type : 'Normal';
+                }
             }
 
             while (moveSlot <= 4) {
@@ -97,7 +107,8 @@ function validateTeam(importText) {
                 name: name,
                 moves: pkmnMoves,
                 item: item,
-                ability: ability
+                ability: ability,
+                tera: tera
             }
         }
     });
@@ -110,7 +121,8 @@ function validateTeam(importText) {
                 name: '',
                 moves: {'1': '', '2': '', '3': '', '4': ''},
                 item: '',
-                ability: ''
+                ability: '',
+                tera: 'Normal'
             }
         }
     }

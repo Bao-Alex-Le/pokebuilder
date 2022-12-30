@@ -37,14 +37,76 @@
     margin: 20px 0 10px 0;
 }
 
-.defense-header {
+
+.analysis-party {
+    display: flex;
+    flex-direction: column;
+}
+
+.party-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
+.analysis-party-select {
+    display: flex;
+    justify-content: center;
+}
+
+.analysis-pkmn,
+.tera-toggle {
+    padding: 5px;
+    margin: 0 4px;
+    background-color: dimgray;
+    border-radius: 10px;
+    border: 2px solid dimgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.analysis-pkmn:hover,
+.analysis-pkmn *:hover,
+.tera-toggle:hover,
+.tera-toggle *:hover{
+    cursor: pointer;
+}
+
+.analysis-pkmn:hover,
+.tera-toggle:hover {
+    border: 2px solid mintcream;
+}
+
+.analysis-party-types {
+    min-width: 64px;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.analysis-tera-select {
+    display: flex;
+    justify-content: center;
+}
+
+.tera-toggle {
+    min-width: 64px;
+}
+
+.tera-toggle-type {
+    display: flex;
+    justify-content: center;
+}
+
 .close-placeholder {
     width: 60px;
+}
+
+.type-placeholder {
+    display: inline-block;
+    width: 32px;
+    height: 14px;
 }
 
 .close-analysis {
@@ -67,6 +129,10 @@
     color: mintcream;
     text-align: center;
     margin: 0 0 3px 0;
+}
+
+.analysis-party-container h4{
+    margin: 6px 0 3px 0;
 }
 
 .defense {

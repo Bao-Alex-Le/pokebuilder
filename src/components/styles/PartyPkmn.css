@@ -70,6 +70,15 @@
     justify-content: space-between;
 }
 
+.icon-container {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .icon.sprite.name {
     width: auto;
     height: auto;
@@ -146,6 +155,7 @@
     height: 100%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .party-pkmn-types {
@@ -163,14 +173,16 @@
 }
 
 .ability,
-.pkmn-item {
-    margin: 0 10px;
+.pkmn-item,
+.tera {
+    margin: 0 5px;
     flex-grow: 1;
     max-width: 150px;
 }
 
 .ability-label,
-.item-label {
+.item-label,
+.tera-label {
     font-size: 13px;
     text-align: center;
     color:mintcream;
@@ -178,7 +190,8 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
-.ability-select {
+.ability-select,
+.tera-select {
     width: 100%;
     min-width: 80px;
     height: 35px;
@@ -194,14 +207,16 @@
     box-sizing: border-box;
 }
 
-.ability-select:hover {
+.ability-select:hover,
+.tera-select:hover {
     cursor: pointer;
     border: 1px solid lightseagreen;
     box-shadow: 0 0 5px lightseagreen;
     transition: all 0.1s ease-out;
 }
 
-.ability-select:focus {
+.ability-select:focus,
+.tera-select:focus {
     cursor: pointer;
     border: 1px solid lightseagreen;
     box-shadow: 0 0 5px lightseagreen;
@@ -372,14 +387,14 @@
     }
 
     .party-pkmn-types {
-        max-width: 150px;
+        max-width: 130px;
         margin: auto;
         height: auto;
         flex-grow: 0;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: nowrap;
     }
     
     .party-pkmn-types img{
@@ -387,7 +402,8 @@
     }
     
     .ability,
-    .pkmn-item {
+    .pkmn-item,
+    .tera {
         margin: auto;
         flex-grow: 0;
         max-width: 150px;

@@ -19,6 +19,8 @@ const typeColours = {
     fairy: ['#ff8ada', '#ffbdea', '#5d4e5d']
 };
 
+const typeList = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy'];
+
 const typeChart = {
     // types  [nor, fir, wat, ele, gra, ice, fig, poi, gro, fly, psy, bug, roc, gho, dra, dar, ste, fai]
     normal:   [  1,   1,   1,   1,   1,   1,   2,   1,   1,   1,   1,   1,   1,   0,   1,   1,   1,   1],
@@ -62,4 +64,4 @@ const typeIndices = {
     fairy: 17
 }
 
-export { typeColours, typeChart, typeIndices };
+export { typeColours, typeChart, typeIndices, typeList };

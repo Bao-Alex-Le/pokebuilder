@@ -14,16 +14,53 @@ import { getBarColor, getBarVal, statDict } from './Stats';
 class Analysis extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            party: {
+                '0': true,
+                '1': true,
+                '2': true,
+                '3': true,
+                '4': true,
+                '5': true
+            },
+            tera: {
+                '0': false,
+                '1': false,
+                '2': false,
+                '3': false,
+                '4': false,
+                '5': false
+            }
+        }
+
+        this.handlePkmnToggle = this.handlePkmnToggle.bind(this);
+        this.handleTeraToggle = this.handleTeraToggle.bind(this);
     }
 
+    handlePkmnToggle(slot) {
+        const newParty = this.state.party;
+        newParty[slot] = !newParty[slot];
+        this.setState({ newParty });
+    }
+
+    handleTeraToggle(slot) {
+        const newTera = this.state.tera;
+        newTera[slot] = !newTera[slot];
+        this.setState({ newTera });
+    }
+
+    /**
+     *  returns an array of length = 6 with the defensive resistances/weaknesses of each party member
+     */
     findPartyDefenses(party) {
         let defenses;
         if (party) {
-            defenses = party.map(pokemon => {
+            defenses = party.map((pokemon, index) => {
                 if (!pokemon.name) return;
                 const stats = pokedex[pokemon.name];
-                const type1 = stats.type1.toLowerCase();
-                const type2 = stats.type2.toLowerCase();
+                const type1 = this.state.tera[index] ? pokemon.tera.toLowerCase() : stats.type1.toLowerCase();
+                const type2 = this.state.tera[index] ? null : stats.type2.toLowerCase();
 
                 if (!type2) {
                     return [pokemon.name, typeChart[type1]];
@@ -44,13 +81,16 @@ class Analysis extends React.Component {
             defenses = [];
         }
 
+        // filler for empty party slots
         while (defenses.length < 6) {
             defenses.push(['', [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]);
         }
-
         return defenses;
     }
 
+    /**
+     *  returns an object with the total weaknesses, resistance, and immunities of full pokemon party
+     */
     findDefenseTotals(defenses) {
         const weaknesses =  [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
         const resistances = [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0];
@@ -78,6 +118,10 @@ class Analysis extends React.Component {
         return defenseTotals;
     }
 
+    /**
+     *  parses through each move for each pokemon in party
+     *  returns object of party move effectiveness against each type
+     */
     findOffensiveCoverage(party) {
         const typeList = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
         
@@ -90,22 +134,27 @@ class Analysis extends React.Component {
         typeList.forEach(type => {
             const typeIndex = typeIndices[type];
 
+            // for each pokemon in party
             Object.keys(party).forEach(slot => {
                 const pokemon = party[slot]['name'];
                 const pokemonMoves = party[slot]['moves'];
 
+                // for each pokemon's move
                 if (pokemon) {
                     Object.keys(pokemonMoves).forEach(moveSlot => {
                         if(pokemonMoves[moveSlot]) {
+                            // calculate move damage against current type
                             const move = pokemonMoves[moveSlot];
                             const movePower = calcMoveDamage(move, type);
 
+                            // adding to offensive totals
                             if (movePower[1] > 1) {
                                 offenseData.effective[typeIndex]++;
                             } else if (movePower[1] < 1) {
                                 offenseData.ineffective[typeIndex]++;
                             }
     
+                            // check if move is currently best move against current type
                             const bestMove = offenseData.bestMoves[typeIndex] ? offenseData.bestMoves[typeIndex] : null;
                             if (!bestMove) {
                                 offenseData.bestMoves[typeIndex] = [pokemon, move];
@@ -128,27 +177,33 @@ class Analysis extends React.Component {
     }
 
     render() {
-        const party = Object.values(this.props.party).filter(pokemon => {
+        const party = Object.values(this.props.party).filter((pokemon, index) => {
             if (pokemon.name) return true;
         });
         const partyNames = party.map(pkmn => {
             if (pkmn) return pkmn.name;
         });
 
-        const defenses = this.findPartyDefenses(party);
+        const calcParty = party.filter((pokemon, index) => {
+            if (this.state.party[index]) return true;
+        });
+        const defenses = this.findPartyDefenses(calcParty);
         const defenseTotals = this.findDefenseTotals(defenses);
-
-        const offenseData = this.findOffensiveCoverage(party);
+        const offenseData = this.findOffensiveCoverage(calcParty);
 
         return (
             <div className='analysis-container-outer'>
                 <div className='analysis-container'>
-                    <div className='defense'>
-                        <div className='defense-header'>
+                    <div className='analysis-party'>
+                        <div className='party-header'>
                             <div className='close-placeholder'></div>
-                            <h2>Defenses</h2>
+                            <h2>Party</h2>
                             <div className='close-analysis' onClick={this.props.onCloseClick}></div>
                         </div>
+                        <AnalysisParty party={party} onPkmnToggle={this.handlePkmnToggle} onTeraToggle={this.handleTeraToggle} partyState={this.state.party} teraState={this.state.tera}/>
+                    </div>
+                    <div className='defense'>
+                        <h2>Defenses</h2>
                         <DefenseTable defenses={defenses}/>
                         <h2>Totals</h2>
                         <DefenseTotalTable defenseTotals={defenseTotals}/>
@@ -161,12 +216,105 @@ class Analysis extends React.Component {
                     </div>
                     <div className='best-stats'>
                         <h2>Stats</h2>
-                        <BestStats party={partyNames} />
+                        <BestStats party={partyNames} analysisState={this.state.party}/>
                     </div>
                 </div>
             </div>
         );
     }
+}
+
+function AnalysisParty(props) {
+    function handlePkmnToggle(e) {
+        props.onPkmnToggle(e.target.value.toString());
+    }
+
+    function handleTeraToggle(e) {
+        props.onTeraToggle(e.target.value.toString());
+    }
+
+    const party = props.party;
+    const partyState = props.partyState;
+    const teraState = props.teraState;
+    const partyList = party.map((pkmn, index) => {
+        const sprite = getPkmnSprite(pkmn.name);
+        const pkmnData = pokedex[pkmn.name];
+
+        const type1 = teraState[index] 
+                        ? (<img src={ require(`../img/types/${pkmn.tera}.png`) }/>)
+                        : (<img src={ require(`../img/types/${pkmnData['type1']}.png`) }/>);
+        const type2 = (pkmnData['type2'] && !teraState[index])
+                        ? (<img src={ require(`../img/types/${pkmnData['type2']}.png`) }/>)
+                        : null;
+        const types = [type1, type2];
+
+        return (
+            <label className='analysis-pkmn' for={`slot${index}`} key={index}>
+                <label for={`slot${index}`}>{sprite}</label>
+                {
+                    partyState[index]
+                        ? <input type="checkbox" 
+                                id={`slot${index}`}
+                                name={`slot${index}`}
+                                value={index}
+                                onChange={handlePkmnToggle}
+                                checked>
+                            </input>
+                        : <input type="checkbox" 
+                                id={`slot${index}`}
+                                name={`slot${index}`}
+                                value={index}
+                                onChange={handlePkmnToggle}>
+                            </input>
+                }
+                <label for={`slot${index}`}>
+                    <div className='analysis-party-types'>
+                        {types}
+                    </div>
+                </label>
+            </label>
+        );
+    });
+    
+    const teraList = party.map((pkmn, index) => {
+        const teraType = pkmn['tera'];
+
+        return (
+            <label className='tera-toggle' for={`tera${index}`} key={index}>
+                <label className='tera-toggle-type' for={`tera${index}`}>
+                    <img src={ require(`../img/types/${teraType}.png`) }/>
+                </label>
+                {
+                    teraState[index]
+                        ? <input type="checkbox" 
+                                id={`tera${index}`}
+                                name={`tera${index}`}
+                                value={index}
+                                onChange={handleTeraToggle}
+                                checked>
+                            </input>
+                        : <input type="checkbox" 
+                                id={`tera${index}`}
+                                name={`tera${index}`}
+                                value={index}
+                                onChange={handleTeraToggle}>
+                            </input>
+                }
+            </label>
+        );
+    });
+
+    return (
+        <div className='analysis-party-container'>
+            <div className='analysis-party-select'>
+                {partyList}
+            </div>
+            <h4>Enable Tera</h4>
+            <div className='analysis-tera-select'>
+                {teraList}
+            </div>
+        </div>
+    );
 }
 
 function DefenseTableHeaders(props) {
@@ -192,6 +340,10 @@ function DefenseTableHeaders(props) {
     );
 }
 
+/**
+ *  JSX table for displaying type defensive effectiveness
+ *  populates list DefenseTableRow elements as rows for the table
+ */
 function DefenseTable(props) {
     let key = 0;
     const tableRows = props.defenses.map(defense => {
@@ -349,7 +501,7 @@ function DefenseTotalRow(props) {
     );
 }
 
-
+// calculates move damage, taking into account things like STAB (same type attack bonus)
 function calcMoveDamage(move, defType) {
     const moveData = moves[move];
     const power = moveData['power'];
@@ -359,6 +511,9 @@ function calcMoveDamage(move, defType) {
     return [effectivePower, typeMultiplier];
 }
 
+/**
+ *  Table that displays total effective and ineffective moves against every type
+ */
 function OffenseTable(props) {
     const effective = props.effective;
     const ineffective = props.ineffective;
@@ -409,6 +564,9 @@ function OffenseTable(props) {
     );
 }
 
+/**
+ *  Displays each of party's best move against each type
+ */
 function BestMoves(props) {
     const typeList = ['normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon', 'dark', 'steel', 'fairy'];
     const bestMoves = props.bestMoves;
@@ -421,7 +579,7 @@ function BestMoves(props) {
             const defType = typeList[i];
             const defTypeCap = defType[0].toUpperCase() + defType.slice(1); 
     
-            /* move data */
+            // move data
             const name = move['name'];
             const fname = move['fname'];
             const type = move['type'];
@@ -430,6 +588,7 @@ function BestMoves(props) {
             const cat = move['category'];
             const sprite = getPkmnSprite(pokemon);
     
+            // calculating multiplier value and setting class for css
             const multiplier = typeChart[defType][typeIndices[type.toLowerCase()]];
             let multiplierClass = 'best-multiplier yellow'; 
             if (multiplier < 1) multiplierClass = 'best-multiplier double';
@@ -493,28 +652,31 @@ function BestMoves(props) {
 
 function BestStats(props) {
     const party = props.party;
+    const state = props.analysisState;
 
     let highests = {'hp': [0, null], 'attack': [0, null], 'defense': [0, null], 'sp_attack': [0, null], 'sp_defense': [0, null], 'speed': [0, null]};
     let averages = {'hp': [0], 'attack': [0], 'defense': [0], 'sp_attack': [0], 'sp_defense': [0], 'speed': [0]};
     let lowests = {'hp': [0, null], 'attack': [0, null], 'defense': [0, null], 'sp_attack': [0, null], 'sp_defense': [0, null], 'speed': [0, null]};
     if (party.length) {
-        party.forEach(pkmn => {
-            const pkmnData = pokedex[pkmn];
-            const stats = pkmnData['stats'];
-    
-            Object.keys(stats).forEach(stat => {
-                const statValue = parseInt(stats[stat]);
-                if (statValue > highests[stat][0]) {
-                    highests[stat][0] = stats[stat];
-                    highests[stat][1] = pkmn;
-                }
-                if (statValue < lowests[stat][0] || lowests[stat][0] == 0) {
-                    lowests[stat][0] = stats[stat];
-                    lowests[stat][1] = pkmn;
-                }
-    
-                averages[stat][0] = averages[stat][0] + statValue;
-            });
+        party.forEach((pkmn, index) => {
+            if (state[index]) {
+                const pkmnData = pokedex[pkmn];
+                const stats = pkmnData['stats'];
+        
+                Object.keys(stats).forEach(stat => {
+                    const statValue = parseInt(stats[stat]);
+                    if (statValue > highests[stat][0]) {
+                        highests[stat][0] = stats[stat];
+                        highests[stat][1] = pkmn;
+                    }
+                    if (statValue < lowests[stat][0] || lowests[stat][0] == 0) {
+                        lowests[stat][0] = stats[stat];
+                        lowests[stat][1] = pkmn;
+                    }
+        
+                    averages[stat][0] = averages[stat][0] + statValue;
+                });
+            }
         });
 
         Object.keys(averages).forEach(stat => {

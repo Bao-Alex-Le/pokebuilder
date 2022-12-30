@@ -8,6 +8,8 @@ class Stats extends React.Component {
 
     render() {
         const stats = this.props.stats;
+
+        // JSX list of 6 elements for each pokemon stat(hp, atk, def, spa, spd, spe)
         const statList = Object.entries(this.props.stats).map((statData, id) => {
             const stat = statData[0];
             const statValue = parseInt(statData[1]);
@@ -39,6 +41,10 @@ class Stats extends React.Component {
     }
 }
 
+/**
+ *  Calculates a value based on the total average/median of that stat across all pokemon
+ *  results in a value that represents the stats relative significance in accordance to all other pokemon
+ */
 export function getBarVal(stat, statVal) {
     const average = statDict[stat]['average'];
     const median  = statDict[stat]['median'];
@@ -51,6 +57,10 @@ export function getBarVal(stat, statVal) {
     }
 }
 
+/**
+ *  returns an rgb value based on the stat's relative value from getBarVal()
+ *  results in a gradient from red (low relative stat) to green (high relative stat)
+ */
 export function getBarColor(barVal) {
     barVal = barVal < 0   ? 0   : barVal;
     barVal = barVal > 100 ? 100 : barVal;

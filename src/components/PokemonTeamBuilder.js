@@ -19,37 +19,43 @@ class PokemonTeamBuilder extends React.Component {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 },
                 '2': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 },
                 '3': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 },
                 '4': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 },
                 '5': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 },
                 '6': {
                     name: '',
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ''
+                    ability: '',
+                    tera: 'Normal'
                 }
                 
             },
@@ -67,31 +73,34 @@ class PokemonTeamBuilder extends React.Component {
         }
 
         // Pokemon party selectio
-        this.handlePokemonSelect = this.handlePokemonSelect.bind(this);
+        this.handlePokemonSelect   = this.handlePokemonSelect.bind(this);
         this.handlePartyPkmnSelect = this.handlePartyPkmnSelect.bind(this);
-        this.handleReturnClick = this.handleReturnClick.bind(this);
+        this.handleReturnClick     = this.handleReturnClick.bind(this);
         this.handleRemovePartyPkmn = this.handleRemovePartyPkmn.bind(this);
 
         // Move/Item selection
-        this.handleShowMoves = this.handleShowMoves.bind(this);
-        this.handleMoveSelect = this.handleMoveSelect.bind(this);
-        this.handleShowItems = this.handleShowItems.bind(this);
-        this.handleItemSelect = this.handleItemSelect.bind(this);
+        this.handleShowMoves     = this.handleShowMoves.bind(this);
+        this.handleMoveSelect    = this.handleMoveSelect.bind(this);
+        this.handleShowItems     = this.handleShowItems.bind(this);
+        this.handleItemSelect    = this.handleItemSelect.bind(this);
         this.handleAbilitySelect = this.handleAbilitySelect.bind(this);
+        this.handleTeraSelect    = this.handleTeraSelect.bind(this);
 
         // Pokedex/Analysis mode selection
-        this.handlePokedexClick = this.handlePokedexClick.bind(this);
+        this.handlePokedexClick  = this.handlePokedexClick.bind(this);
         this.handleAnalysisClick = this.handleAnalysisClick.bind(this);
-        this.handleImportClick = this.handleImportClick.bind(this);
+        this.handleImportClick   = this.handleImportClick.bind(this);
 
         // Event handlers for focus, resizing, etc.
         this.handleFocusIn = this.handleFocusIn.bind(this);
-        this.handleResize = this.handleResize.bind(this);
+        this.handleResize  = this.handleResize.bind(this);
     }
 
     componentDidMount() {
         window.addEventListener('resize', this.handleResize);
         document.addEventListener('focusin', this.handleFocusIn);
+
+        // Initializing screen size state
         const view = window.innerWidth <= 800 ? 'mobile' : 'desktop';
         const newDisplay = this.state.display;
         newDisplay.view = view;
@@ -148,14 +157,17 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handlePokedexClick() {
+        // changes state between pokedex display and pokedex display (mostly for mobile)
         if (!this.state.dexMode) this.setState({dexMode: true});
     }
 
     handleAnalysisClick() {
+        // shows analysis screen
         if (this.state.dexMode) this.setState({dexMode: false});
     }
 
     handleImportClick(newParty) {
+        // opens/closes import/export text area
         if (this.state.import && newParty) {
             this.setState({
                 party: newParty,
@@ -212,7 +224,8 @@ class PokemonTeamBuilder extends React.Component {
                             name: pokemon,
                             moves: {'1': '', '2': '', '3': '', '4': ''},
                             item: '',
-                            ability: ability
+                            ability: ability,
+                            tera: 'Normal'
                         }
                     }
                 });
@@ -222,7 +235,8 @@ class PokemonTeamBuilder extends React.Component {
                     name: pokemon,
                     moves: {'1': '', '2': '', '3': '', '4': ''},
                     item: '',
-                    ability: ability
+                    ability: ability,
+                    tera: 'Normal'
                 };
                 this.setState({ party: newParty });
             }
@@ -238,6 +252,8 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handlePartyPkmnSelect(slot) {
+        // selects the clicked pokemon
+        // highlights in desktop, changes to pokedex view in mobile
         let newDisplay = this.state.display;
         newDisplay.slot = slot;
 
@@ -257,7 +273,9 @@ class PokemonTeamBuilder extends React.Component {
         currentParty.push({
             name: '',
             moves: {'1': '', '2': '', '3': '', '4': ''},
-            item: ''
+            item: '',
+            ability: '',
+            tera: 'Normal'
         });
 
         // shifts empty pokemon slot to end of party
@@ -277,6 +295,7 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handleShowMoves(pokemon, slot, moveSlot) {
+        // display list of moves
         const newDisplay = this.state.display;
         newDisplay.mode     = 'moves';
         newDisplay.pokemon  = pokemon;
@@ -288,6 +307,7 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handleMoveSelect(moveName) {
+        // selects the move for a selected moveslot on a pokemon
         const newParty = this.state.party;
         const slot = this.state.display.slot;
         const moveSlot = this.state.lastFocus ? this.state.lastFocus : this.state.display.moveSlot;
@@ -296,6 +316,7 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handleShowItems(pokemon, slot) {
+        // display a list of battle items
         const newDisplay = this.state.display;
         newDisplay.mode     = 'items';
         newDisplay.pokemon  = pokemon;
@@ -306,6 +327,7 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handleItemSelect(itemName) {
+        // select the item for a pokemon
         const newParty = this.state.party;
         const slot = this.state.display.slot;
         newParty[slot].item = itemName;
@@ -313,18 +335,29 @@ class PokemonTeamBuilder extends React.Component {
     }
 
     handleAbilitySelect(ability, slot) {
+        // selects ability from option menu
         const newParty = this.state.party;
         newParty[slot].ability = ability;
-        this.setState({ newParty })
+        this.setState({ newParty });
+    }
+
+    handleTeraSelect(type, slot) {
+        const newParty = this.state.party;
+        newParty[slot].tera = type;
+        this.setState({ newParty });
     }
 
     render() {
         let teamBuilderDisplay = [];
         let partyVisibility, pokedexVisibility;
+
+        // determining what menus and screens should be visible based on current state
         if (this.state.display.view == 'desktop') {
+            // desktop view: display mostly everything
             partyVisibility = 'visible-flex';
             pokedexVisibility = 'visible-block';
         } else {
+            // mobile view: display party or pokedex depending on state of app
             if (this.state.display.mode == 'party' || this.state.display.mode == 'moves' || this.state.display.mode == 'items') {
                 partyVisibility = 'visible-flex';
                 pokedexVisibility = 'hidden';
@@ -338,6 +371,7 @@ class PokemonTeamBuilder extends React.Component {
             }
         }
 
+        // party display, appears on the left side of the screen
         const party = (
             <div className={`party wrapper ${partyVisibility}`} key='1'>
                 <DexAnalysisMenu dexMode={this.state.dexMode} 
@@ -358,11 +392,13 @@ class PokemonTeamBuilder extends React.Component {
                     onItemClick      = {this.handleShowItems}
                     onItemSelect     = {this.handleItemSelect}
                     onAbilitySelect  = {this.handleAbilitySelect}
+                    onTeraSelect     = {this.handleTeraSelect}
                     key='2'
                 />
             </div>
         );
 
+        // pokedex/analysis display on the right side of screen
         let pokedexDisplay;
         if (this.state.dexMode) {
             pokedexDisplay = ( 
@@ -394,22 +430,28 @@ class PokemonTeamBuilder extends React.Component {
     }
 }
 
+/**
+ *  3 button menu found above the party menu
+ *  for changing from pokedex menu to analysis screen,
+ *  and opening/closing import menu
+ */
 function DexAnalysisMenu(props) {
+    // creates formatted text of current team for passing onto importer
     const [importText, setImportText] = useState(formatTeam(props.party));
 
     function handlePokedexClick(e) {
-        props.onPokedexClick();
+        props.onPokedexClick(); // switches to pokedex view
     }
 
     function handleAnalysisClick(e) {
-        props.onAnalysisClick();
+        props.onAnalysisClick(); // switches to analysis view
     }
 
     function handleImportClick(e) {
         let newParty;
         if (props.import) { // import area is already open, validate team
             newParty = validateTeam(importText);
-        } else {
+        } else { // format current team into text and save to state
             setImportText(formatTeam(props.party));
         }
         props.onImportClick(newParty);
@@ -419,6 +461,7 @@ function DexAnalysisMenu(props) {
         setImportText(value);
     }
 
+    // setting classes of JSX elements for css styles
     const dexClass = props.dexMode ? 'dex-button dex-menu-selected' : 'dex-button';
     const analysisClass = props.dexMode ? 'analysis-button' : 'analysis-button dex-menu-selected';
     const importClass = props.import ? 'import-export dex-menu-selected' : 'import-export';

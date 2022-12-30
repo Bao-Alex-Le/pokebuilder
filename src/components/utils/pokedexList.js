@@ -1,4 +1,4 @@
-let pokedexList = [
+const pokedexList = [
    {
       "name": "Bulbasaur",
       "fname": "bulbasaur",
@@ -57,7 +57,7 @@ let pokedexList = [
       "spa": "122",
       "spd": "120",
       "spe": "80",
-      "icon": "1116"
+      "icon": "1260"
    },
    {
       "name": "Charmander",
@@ -117,7 +117,7 @@ let pokedexList = [
       "spa": "130",
       "spd": "85",
       "spe": "100",
-      "icon": "1117"
+      "icon": "1261"
    },
    {
       "name": "Charizard Mega Y",
@@ -132,7 +132,7 @@ let pokedexList = [
       "spa": "159",
       "spd": "115",
       "spe": "100",
-      "icon": "1118"
+      "icon": "1262"
    },
    {
       "name": "Squirtle",
@@ -192,7 +192,7 @@ let pokedexList = [
       "spa": "135",
       "spd": "115",
       "spe": "78",
-      "icon": "1119"
+      "icon": "1263"
    },
    {
       "name": "Caterpie",
@@ -297,7 +297,7 @@ let pokedexList = [
       "spa": "15",
       "spd": "80",
       "spe": "145",
-      "icon": "1120"
+      "icon": "1264"
    },
    {
       "name": "Pidgey",
@@ -357,7 +357,7 @@ let pokedexList = [
       "spa": "135",
       "spd": "80",
       "spe": "121",
-      "icon": "1121"
+      "icon": "1265"
    },
    {
       "name": "Rattata",
@@ -387,7 +387,7 @@ let pokedexList = [
       "spa": "25",
       "spd": "35",
       "spe": "72",
-      "icon": "1019"
+      "icon": "1139"
    },
    {
       "name": "Raticate",
@@ -417,7 +417,7 @@ let pokedexList = [
       "spa": "40",
       "spd": "80",
       "spe": "77",
-      "icon": "1020"
+      "icon": "1140"
    },
    {
       "name": "Spearow",
@@ -522,7 +522,7 @@ let pokedexList = [
       "spa": "95",
       "spd": "85",
       "spe": "110",
-      "icon": "1021"
+      "icon": "1141"
    },
    {
       "name": "Sandshrew",
@@ -552,7 +552,7 @@ let pokedexList = [
       "spa": "10",
       "spd": "35",
       "spe": "40",
-      "icon": "1022"
+      "icon": "1142"
    },
    {
       "name": "Sandslash",
@@ -582,7 +582,7 @@ let pokedexList = [
       "spa": "25",
       "spd": "65",
       "spe": "65",
-      "icon": "1023"
+      "icon": "1143"
    },
    {
       "name": "Nidoran♀",
@@ -732,7 +732,7 @@ let pokedexList = [
       "spa": "50",
       "spd": "65",
       "spe": "65",
-      "icon": "1024"
+      "icon": "1144"
    },
    {
       "name": "Ninetales",
@@ -762,7 +762,7 @@ let pokedexList = [
       "spa": "81",
       "spd": "100",
       "spe": "109",
-      "icon": "1025"
+      "icon": "1145"
    },
    {
       "name": "Jigglypuff",
@@ -957,7 +957,7 @@ let pokedexList = [
       "spa": "35",
       "spd": "45",
       "spe": "90",
-      "icon": "1026"
+      "icon": "1146"
    },
    {
       "name": "Dugtrio",
@@ -987,7 +987,7 @@ let pokedexList = [
       "spa": "50",
       "spd": "70",
       "spe": "110",
-      "icon": "1027"
+      "icon": "1147"
    },
    {
       "name": "Meowth",
@@ -1017,7 +1017,7 @@ let pokedexList = [
       "spa": "50",
       "spd": "40",
       "spe": "90",
-      "icon": "1028"
+      "icon": "1148"
    },
    {
       "name": "Meowth Galar",
@@ -1032,7 +1032,7 @@ let pokedexList = [
       "spa": "40",
       "spd": "40",
       "spe": "40",
-      "icon": "1066"
+      "icon": "1186"
    },
    {
       "name": "Persian",
@@ -1062,7 +1062,7 @@ let pokedexList = [
       "spa": "75",
       "spd": "65",
       "spe": "115",
-      "icon": "1029"
+      "icon": "1149"
    },
    {
       "name": "Psyduck",
@@ -1140,6 +1140,21 @@ let pokedexList = [
       "icon": "58"
    },
    {
+      "name": "Growlithe Hisui",
+      "fname": "growlithehisui",
+      "id": "76",
+      "type1": "Fire",
+      "type2": "Rock",
+      "generation": "1",
+      "hp": "60",
+      "atk": "75",
+      "def": "45",
+      "spa": "65",
+      "spd": "50",
+      "spe": "55",
+      "icon": "1226"
+   },
+   {
       "name": "Arcanine",
       "fname": "arcanine",
       "id": "77",
@@ -1153,6 +1168,21 @@ let pokedexList = [
       "spd": "80",
       "spe": "95",
       "icon": "59"
+   },
+   {
+      "name": "Arcanine Hisui",
+      "fname": "arcaninehisui",
+      "id": "77",
+      "type1": "Fire",
+      "type2": "Rock",
+      "generation": "1",
+      "hp": "95",
+      "atk": "115",
+      "def": "80",
+      "spa": "95",
+      "spd": "80",
+      "spe": "90",
+      "icon": "1227"
    },
    {
       "name": "Poliwag",
@@ -1257,7 +1287,7 @@ let pokedexList = [
       "spa": "175",
       "spd": "105",
       "spe": "150",
-      "icon": "1122"
+      "icon": "1266"
    },
    {
       "name": "Machop",
@@ -1407,7 +1437,7 @@ let pokedexList = [
       "spa": "30",
       "spd": "30",
       "spe": "20",
-      "icon": "1030"
+      "icon": "1150"
    },
    {
       "name": "Graveler",
@@ -1437,7 +1467,7 @@ let pokedexList = [
       "spa": "45",
       "spd": "45",
       "spe": "35",
-      "icon": "1031"
+      "icon": "1151"
    },
    {
       "name": "Golem",
@@ -1467,7 +1497,7 @@ let pokedexList = [
       "spa": "55",
       "spd": "65",
       "spe": "45",
-      "icon": "1032"
+      "icon": "1152"
    },
    {
       "name": "Ponyta",
@@ -1497,7 +1527,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "65",
       "spe": "90",
-      "icon": "1067"
+      "icon": "1187"
    },
    {
       "name": "Rapidash",
@@ -1527,7 +1557,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "80",
       "spe": "105",
-      "icon": "1068"
+      "icon": "1188"
    },
    {
       "name": "Slowpoke",
@@ -1572,7 +1602,7 @@ let pokedexList = [
       "spa": "130",
       "spd": "80",
       "spe": "30",
-      "icon": "1123"
+      "icon": "1267"
    },
    {
       "name": "Magnemite",
@@ -1632,7 +1662,7 @@ let pokedexList = [
       "spa": "58",
       "spd": "62",
       "spe": "55",
-      "icon": "1069"
+      "icon": "1189"
    },
    {
       "name": "Doduo",
@@ -1722,7 +1752,7 @@ let pokedexList = [
       "spa": "40",
       "spd": "50",
       "spe": "25",
-      "icon": "1033"
+      "icon": "1153"
    },
    {
       "name": "Muk",
@@ -1752,7 +1782,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "100",
       "spe": "50",
-      "icon": "1034"
+      "icon": "1154"
    },
    {
       "name": "Shellder",
@@ -1842,7 +1872,7 @@ let pokedexList = [
       "spa": "170",
       "spd": "95",
       "spe": "130",
-      "icon": "1124"
+      "icon": "1268"
    },
    {
       "name": "Onix",
@@ -1935,6 +1965,21 @@ let pokedexList = [
       "icon": "100"
    },
    {
+      "name": "Voltorb Hisui",
+      "fname": "voltorbhisui",
+      "id": "129",
+      "type1": "Electric",
+      "type2": "Grass",
+      "generation": "1",
+      "hp": "40",
+      "atk": "30",
+      "def": "50",
+      "spa": "55",
+      "spd": "55",
+      "spe": "100",
+      "icon": "1228"
+   },
+   {
       "name": "Electrode",
       "fname": "electrode",
       "id": "130",
@@ -1948,6 +1993,21 @@ let pokedexList = [
       "spd": "80",
       "spe": "150",
       "icon": "101"
+   },
+   {
+      "name": "Electrode Hisui",
+      "fname": "electrodehisui",
+      "id": "130",
+      "type1": "Electric",
+      "type2": "Grass",
+      "generation": "1",
+      "hp": "60",
+      "atk": "50",
+      "def": "70",
+      "spa": "80",
+      "spd": "80",
+      "spe": "150",
+      "icon": "1229"
    },
    {
       "name": "Exeggcute",
@@ -1992,7 +2052,7 @@ let pokedexList = [
       "spa": "125",
       "spd": "75",
       "spe": "45",
-      "icon": "1035"
+      "icon": "1155"
    },
    {
       "name": "Cubone",
@@ -2037,7 +2097,7 @@ let pokedexList = [
       "spa": "50",
       "spd": "80",
       "spe": "45",
-      "icon": "1036"
+      "icon": "1156"
    },
    {
       "name": "Hitmonlee",
@@ -2127,7 +2187,7 @@ let pokedexList = [
       "spa": "85",
       "spd": "70",
       "spe": "60",
-      "icon": "1070"
+      "icon": "1190"
    },
    {
       "name": "Rhyhorn",
@@ -2217,7 +2277,7 @@ let pokedexList = [
       "spa": "60",
       "spd": "100",
       "spe": "100",
-      "icon": "1125"
+      "icon": "1269"
    },
    {
       "name": "Horsea",
@@ -2337,7 +2397,7 @@ let pokedexList = [
       "spa": "90",
       "spd": "90",
       "spe": "100",
-      "icon": "1071"
+      "icon": "1192"
    },
    {
       "name": "Scyther",
@@ -2427,7 +2487,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "90",
       "spe": "105",
-      "icon": "1126"
+      "icon": "1270"
    },
    {
       "name": "Tauros",
@@ -2443,6 +2503,51 @@ let pokedexList = [
       "spd": "70",
       "spe": "110",
       "icon": "128"
+   },
+   {
+      "name": "Tauros Paldea",
+      "fname": "taurospaldea",
+      "id": "163",
+      "type1": "Fighting",
+      "type2": "",
+      "generation": "1",
+      "hp": "75",
+      "atk": "110",
+      "def": "105",
+      "spa": "30",
+      "spd": "70",
+      "spe": "100",
+      "icon": "1244"
+   },
+   {
+      "name": "Tauros Paldea Fire",
+      "fname": "taurospaldeafire",
+      "id": "163",
+      "type1": "Fighting",
+      "type2": "Fire",
+      "generation": "1",
+      "hp": "75",
+      "atk": "110",
+      "def": "105",
+      "spa": "30",
+      "spd": "70",
+      "spe": "100",
+      "icon": "1245"
+   },
+   {
+      "name": "Tauros Paldea Water",
+      "fname": "taurospaldeawater",
+      "id": "163",
+      "type1": "Fighting",
+      "type2": "Water",
+      "generation": "1",
+      "hp": "75",
+      "atk": "110",
+      "def": "105",
+      "spa": "30",
+      "spd": "70",
+      "spe": "100",
+      "icon": "1246"
    },
    {
       "name": "Magikarp",
@@ -2487,7 +2592,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "130",
       "spe": "81",
-      "icon": "1127"
+      "icon": "1271"
    },
    {
       "name": "Lapras",
@@ -2682,7 +2787,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "95",
       "spe": "150",
-      "icon": "1128"
+      "icon": "1272"
    },
    {
       "name": "Snorlax",
@@ -2727,7 +2832,7 @@ let pokedexList = [
       "spa": "125",
       "spd": "100",
       "spe": "95",
-      "icon": "1100"
+      "icon": "1220"
    },
    {
       "name": "Zapdos",
@@ -2757,7 +2862,7 @@ let pokedexList = [
       "spa": "85",
       "spd": "90",
       "spe": "100",
-      "icon": "1101"
+      "icon": "1221"
    },
    {
       "name": "Moltres",
@@ -2787,7 +2892,7 @@ let pokedexList = [
       "spa": "100",
       "spd": "125",
       "spe": "90",
-      "icon": "1102"
+      "icon": "1222"
    },
    {
       "name": "Dratini",
@@ -2862,7 +2967,7 @@ let pokedexList = [
       "spa": "154",
       "spd": "100",
       "spe": "130",
-      "icon": "1129"
+      "icon": "1273"
    },
    {
       "name": "Mewtwo Mega Y",
@@ -2877,7 +2982,7 @@ let pokedexList = [
       "spa": "194",
       "spd": "120",
       "spe": "140",
-      "icon": "1130"
+      "icon": "1274"
    },
    {
       "name": "Mew",
@@ -2983,6 +3088,21 @@ let pokedexList = [
       "spd": "85",
       "spe": "100",
       "icon": "157"
+   },
+   {
+      "name": "Typhlosion Hisui",
+      "fname": "typhlosionhisui",
+      "id": "199",
+      "type1": "Fire",
+      "type2": "Ghost",
+      "generation": "2",
+      "hp": "73",
+      "atk": "84",
+      "def": "78",
+      "spa": "119",
+      "spd": "85",
+      "spe": "95",
+      "icon": "1230"
    },
    {
       "name": "Totodile",
@@ -3357,7 +3477,7 @@ let pokedexList = [
       "spa": "165",
       "spd": "110",
       "spe": "45",
-      "icon": "1131"
+      "icon": "1275"
    },
    {
       "name": "Bellossom",
@@ -3555,6 +3675,21 @@ let pokedexList = [
       "icon": "194"
    },
    {
+      "name": "Wooper Paldea",
+      "fname": "wooperpaldea",
+      "id": "237",
+      "type1": "Poison",
+      "type2": "Ground",
+      "generation": "2",
+      "hp": "55",
+      "atk": "45",
+      "def": "45",
+      "spa": "25",
+      "spd": "25",
+      "spe": "15",
+      "icon": "1247"
+   },
+   {
       "name": "Quagsire",
       "fname": "quagsire",
       "id": "238",
@@ -3642,7 +3777,7 @@ let pokedexList = [
       "spa": "110",
       "spd": "110",
       "spe": "30",
-      "icon": "1103"
+      "icon": "1223"
    },
    {
       "name": "Misdreavus",
@@ -3792,7 +3927,7 @@ let pokedexList = [
       "spa": "55",
       "spd": "95",
       "spe": "30",
-      "icon": "1132"
+      "icon": "1276"
    },
    {
       "name": "Snubbull",
@@ -3840,6 +3975,21 @@ let pokedexList = [
       "icon": "211"
    },
    {
+      "name": "Qwilfish Hisui",
+      "fname": "qwilfishhisui",
+      "id": "256",
+      "type1": "Dark",
+      "type2": "Poison",
+      "generation": "2",
+      "hp": "65",
+      "atk": "95",
+      "def": "85",
+      "spa": "55",
+      "spd": "55",
+      "spe": "85",
+      "icon": "1231"
+   },
+   {
       "name": "Scizor",
       "fname": "scizor",
       "id": "257",
@@ -3867,7 +4017,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "100",
       "spe": "75",
-      "icon": "1133"
+      "icon": "1277"
    },
    {
       "name": "Shuckle",
@@ -3912,7 +4062,7 @@ let pokedexList = [
       "spa": "40",
       "spd": "105",
       "spe": "75",
-      "icon": "1134"
+      "icon": "1278"
    },
    {
       "name": "Sneasel",
@@ -3928,6 +4078,21 @@ let pokedexList = [
       "spd": "75",
       "spe": "115",
       "icon": "215"
+   },
+   {
+      "name": "Sneasel Hisui",
+      "fname": "sneaselhisui",
+      "id": "262",
+      "type1": "Fighting",
+      "type2": "Poison",
+      "generation": "2",
+      "hp": "55",
+      "atk": "95",
+      "def": "55",
+      "spa": "35",
+      "spd": "75",
+      "spe": "115",
+      "icon": "1232"
    },
    {
       "name": "Teddiursa",
@@ -4047,7 +4212,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "100",
       "spe": "30",
-      "icon": "1072"
+      "icon": "1191"
    },
    {
       "name": "Remoraid",
@@ -4167,7 +4332,7 @@ let pokedexList = [
       "spa": "140",
       "spd": "90",
       "spe": "115",
-      "icon": "1135"
+      "icon": "1279"
    },
    {
       "name": "Kingdra",
@@ -4467,7 +4632,7 @@ let pokedexList = [
       "spa": "95",
       "spd": "120",
       "spe": "71",
-      "icon": "1136"
+      "icon": "1280"
    },
    {
       "name": "Lugia",
@@ -4572,7 +4737,7 @@ let pokedexList = [
       "spa": "145",
       "spd": "85",
       "spe": "145",
-      "icon": "1137"
+      "icon": "1281"
    },
    {
       "name": "Torchic",
@@ -4632,7 +4797,7 @@ let pokedexList = [
       "spa": "130",
       "spd": "80",
       "spe": "100",
-      "icon": "1138"
+      "icon": "1282"
    },
    {
       "name": "Mudkip",
@@ -4692,7 +4857,7 @@ let pokedexList = [
       "spa": "95",
       "spd": "110",
       "spe": "70",
-      "icon": "1139"
+      "icon": "1283"
    },
    {
       "name": "Poochyena",
@@ -4752,7 +4917,7 @@ let pokedexList = [
       "spa": "30",
       "spd": "41",
       "spe": "60",
-      "icon": "1073"
+      "icon": "1192"
    },
    {
       "name": "Linoone",
@@ -4782,7 +4947,7 @@ let pokedexList = [
       "spa": "50",
       "spd": "61",
       "spe": "100",
-      "icon": "1074"
+      "icon": "1193"
    },
    {
       "name": "Wurmple",
@@ -5067,7 +5232,7 @@ let pokedexList = [
       "spa": "165",
       "spd": "135",
       "spe": "100",
-      "icon": "1140"
+      "icon": "1284"
    },
    {
       "name": "Surskit",
@@ -5382,7 +5547,7 @@ let pokedexList = [
       "spa": "85",
       "spd": "115",
       "spe": "20",
-      "icon": "1141"
+      "icon": "1285"
    },
    {
       "name": "Mawile",
@@ -5412,7 +5577,7 @@ let pokedexList = [
       "spa": "55",
       "spd": "95",
       "spe": "50",
-      "icon": "1142"
+      "icon": "1286"
    },
    {
       "name": "Aron",
@@ -5472,7 +5637,7 @@ let pokedexList = [
       "spa": "60",
       "spd": "80",
       "spe": "50",
-      "icon": "1143"
+      "icon": "1287"
    },
    {
       "name": "Meditite",
@@ -5517,7 +5682,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "85",
       "spe": "100",
-      "icon": "1144"
+      "icon": "1288"
    },
    {
       "name": "Electrike",
@@ -5562,7 +5727,7 @@ let pokedexList = [
       "spa": "135",
       "spd": "80",
       "spe": "135",
-      "icon": "1145"
+      "icon": "1289"
    },
    {
       "name": "Plusle",
@@ -5712,7 +5877,7 @@ let pokedexList = [
       "spa": "110",
       "spd": "65",
       "spe": "105",
-      "icon": "1146"
+      "icon": "1290"
    },
    {
       "name": "Wailmer",
@@ -5787,7 +5952,7 @@ let pokedexList = [
       "spa": "145",
       "spd": "105",
       "spe": "20",
-      "icon": "1147"
+      "icon": "1291"
    },
    {
       "name": "Torkoal",
@@ -5967,7 +6132,7 @@ let pokedexList = [
       "spa": "110",
       "spd": "105",
       "spe": "80",
-      "icon": "1148"
+      "icon": "1292"
    },
    {
       "name": "Zangoose",
@@ -6237,7 +6402,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "70",
       "spe": "70",
-      "icon": "937"
+      "icon": "1057"
    },
    {
       "name": "Castform Rainy",
@@ -6252,7 +6417,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "70",
       "spe": "70",
-      "icon": "935"
+      "icon": "1055"
    },
    {
       "name": "Castform Snowy",
@@ -6267,7 +6432,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "70",
       "spe": "70",
-      "icon": "936"
+      "icon": "1056"
    },
    {
       "name": "Kecleon",
@@ -6327,7 +6492,7 @@ let pokedexList = [
       "spa": "93",
       "spd": "83",
       "spe": "75",
-      "icon": "1149"
+      "icon": "1293"
    },
    {
       "name": "Duskull",
@@ -6417,7 +6582,7 @@ let pokedexList = [
       "spa": "115",
       "spd": "60",
       "spe": "115",
-      "icon": "1150"
+      "icon": "1294"
    },
    {
       "name": "Wynaut",
@@ -6477,7 +6642,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "80",
       "spe": "100",
-      "icon": "1151"
+      "icon": "1295"
    },
    {
       "name": "Spheal",
@@ -6657,7 +6822,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "90",
       "spe": "120",
-      "icon": "1152"
+      "icon": "1296"
    },
    {
       "name": "Beldum",
@@ -6717,7 +6882,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "110",
       "spe": "110",
-      "icon": "1153"
+      "icon": "1297"
    },
    {
       "name": "Regirock",
@@ -6792,7 +6957,7 @@ let pokedexList = [
       "spa": "140",
       "spd": "150",
       "spe": "110",
-      "icon": "1154"
+      "icon": "1298"
    },
    {
       "name": "Latios",
@@ -6822,7 +6987,7 @@ let pokedexList = [
       "spa": "160",
       "spd": "120",
       "spe": "110",
-      "icon": "1155"
+      "icon": "1299"
    },
    {
       "name": "Kyogre",
@@ -6852,7 +7017,7 @@ let pokedexList = [
       "spa": "180",
       "spd": "160",
       "spe": "90",
-      "icon": "1156"
+      "icon": "1300"
    },
    {
       "name": "Groudon",
@@ -6882,7 +7047,7 @@ let pokedexList = [
       "spa": "150",
       "spd": "90",
       "spe": "90",
-      "icon": "1157"
+      "icon": "1301"
    },
    {
       "name": "Rayquaza",
@@ -6912,7 +7077,7 @@ let pokedexList = [
       "spa": "180",
       "spd": "100",
       "spe": "115",
-      "icon": "1158"
+      "icon": "1302"
    },
    {
       "name": "Jirachi",
@@ -6957,7 +7122,7 @@ let pokedexList = [
       "spa": "180",
       "spd": "20",
       "spe": "150",
-      "icon": "938"
+      "icon": "1058"
    },
    {
       "name": "Deoxys Defense",
@@ -6972,7 +7137,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "160",
       "spe": "90",
-      "icon": "939"
+      "icon": "1059"
    },
    {
       "name": "Deoxys Speed",
@@ -6987,7 +7152,7 @@ let pokedexList = [
       "spa": "95",
       "spd": "90",
       "spe": "180",
-      "icon": "940"
+      "icon": "1060"
    },
    {
       "name": "Turtwig",
@@ -7407,7 +7572,7 @@ let pokedexList = [
       "spa": "59",
       "spd": "85",
       "spe": "36",
-      "icon": "943"
+      "icon": "1063"
    },
    {
       "name": "Wormadam Trash",
@@ -7422,7 +7587,7 @@ let pokedexList = [
       "spa": "69",
       "spd": "95",
       "spe": "36",
-      "icon": "944"
+      "icon": "1064"
    },
    {
       "name": "Mothim",
@@ -7662,7 +7827,7 @@ let pokedexList = [
       "spa": "54",
       "spd": "96",
       "spe": "135",
-      "icon": "1159"
+      "icon": "1303"
    },
    {
       "name": "Mismagius",
@@ -7932,7 +8097,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "95",
       "spe": "92",
-      "icon": "1160"
+      "icon": "1304"
    },
    {
       "name": "Munchlax",
@@ -7992,7 +8157,7 @@ let pokedexList = [
       "spa": "140",
       "spd": "70",
       "spe": "112",
-      "icon": "1161"
+      "icon": "1305"
    },
    {
       "name": "Hippopotas",
@@ -8187,7 +8352,7 @@ let pokedexList = [
       "spa": "132",
       "spd": "105",
       "spe": "30",
-      "icon": "1162"
+      "icon": "1306"
    },
    {
       "name": "Weavile",
@@ -8427,7 +8592,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "115",
       "spe": "110",
-      "icon": "1163"
+      "icon": "1307"
    },
    {
       "name": "Probopass",
@@ -8502,7 +8667,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "107",
       "spe": "86",
-      "icon": "950"
+      "icon": "1070"
    },
    {
       "name": "Rotom Wash",
@@ -8517,7 +8682,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "107",
       "spe": "86",
-      "icon": "952"
+      "icon": "1072"
    },
    {
       "name": "Rotom Frost",
@@ -8532,7 +8697,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "107",
       "spe": "86",
-      "icon": "949"
+      "icon": "1069"
    },
    {
       "name": "Rotom Fan",
@@ -8547,7 +8712,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "107",
       "spe": "86",
-      "icon": "948"
+      "icon": "1068"
    },
    {
       "name": "Rotom Mow",
@@ -8562,7 +8727,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "107",
       "spe": "86",
-      "icon": "951"
+      "icon": "1071"
    },
    {
       "name": "Uxie",
@@ -8697,7 +8862,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "100",
       "spe": "90",
-      "icon": "953"
+      "icon": "1073"
    },
    {
       "name": "Cresselia",
@@ -8787,7 +8952,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "75",
       "spe": "127",
-      "icon": "954"
+      "icon": "1074"
    },
    {
       "name": "Arceus",
@@ -8953,6 +9118,21 @@ let pokedexList = [
       "spd": "70",
       "spe": "70",
       "icon": "503"
+   },
+   {
+      "name": "Samurott Hisui",
+      "fname": "samurotthisui",
+      "id": "597",
+      "type1": "Water",
+      "type2": "Dark",
+      "generation": "5",
+      "hp": "90",
+      "atk": "108",
+      "def": "80",
+      "spa": "100",
+      "spd": "65",
+      "spe": "85",
+      "icon": "1233"
    },
    {
       "name": "Patrat",
@@ -9387,7 +9567,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "126",
       "spe": "50",
-      "icon": "1164"
+      "icon": "1308"
    },
    {
       "name": "Timburr",
@@ -9660,6 +9840,21 @@ let pokedexList = [
       "icon": "549"
    },
    {
+      "name": "Lilligant Hisui",
+      "fname": "lilliganthisui",
+      "id": "644",
+      "type1": "Grass",
+      "type2": "Fighting",
+      "generation": "5",
+      "hp": "70",
+      "atk": "105",
+      "def": "75",
+      "spa": "50",
+      "spd": "75",
+      "spe": "105",
+      "icon": "1234"
+   },
+   {
       "name": "Basculin",
       "fname": "basculin",
       "id": "645",
@@ -9687,7 +9882,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "55",
       "spe": "98",
-      "icon": "956"
+      "icon": "1076"
    },
    {
       "name": "Sandile",
@@ -9762,7 +9957,7 @@ let pokedexList = [
       "spa": "15",
       "spd": "45",
       "spe": "50",
-      "icon": "1075"
+      "icon": "1195"
    },
    {
       "name": "Darmanitan",
@@ -9792,7 +9987,7 @@ let pokedexList = [
       "spa": "140",
       "spd": "105",
       "spe": "55",
-      "icon": "957"
+      "icon": "1077"
    },
    {
       "name": "Darmanitan Galar",
@@ -9807,7 +10002,7 @@ let pokedexList = [
       "spa": "30",
       "spd": "55",
       "spe": "95",
-      "icon": "1076"
+      "icon": "1196"
    },
    {
       "name": "Darmanitan Galar Zen",
@@ -9822,7 +10017,7 @@ let pokedexList = [
       "spa": "30",
       "spd": "55",
       "spe": "135",
-      "icon": "1077"
+      "icon": "1197"
    },
    {
       "name": "Maractus",
@@ -9942,7 +10137,7 @@ let pokedexList = [
       "spa": "30",
       "spd": "65",
       "spe": "30",
-      "icon": "1078"
+      "icon": "1198"
    },
    {
       "name": "Cofagrigus",
@@ -10065,6 +10260,21 @@ let pokedexList = [
       "icon": "570"
    },
    {
+      "name": "Zorua Hisui",
+      "fname": "zoruahisui",
+      "id": "671",
+      "type1": "Normal",
+      "type2": "Ghost",
+      "generation": "5",
+      "hp": "35",
+      "atk": "60",
+      "def": "40",
+      "spa": "85",
+      "spd": "40",
+      "spe": "70",
+      "icon": "1235"
+   },
+   {
       "name": "Zoroark",
       "fname": "zoroark",
       "id": "672",
@@ -10078,6 +10288,21 @@ let pokedexList = [
       "spd": "60",
       "spe": "105",
       "icon": "571"
+   },
+   {
+      "name": "Zoroark Hisui",
+      "fname": "zoroarkhisui",
+      "id": "672",
+      "type1": "Normal",
+      "type2": "Ghost",
+      "generation": "5",
+      "hp": "55",
+      "atk": "100",
+      "def": "60",
+      "spa": "125",
+      "spd": "60",
+      "spe": "110",
+      "icon": "1236"
    },
    {
       "name": "Minccino",
@@ -10797,7 +11022,7 @@ let pokedexList = [
       "spa": "66",
       "spd": "84",
       "spe": "32",
-      "icon": "1079"
+      "icon": "1199"
    },
    {
       "name": "Mienfoo",
@@ -10948,6 +11173,21 @@ let pokedexList = [
       "spd": "75",
       "spe": "80",
       "icon": "628"
+   },
+   {
+      "name": "Braviary Hisui",
+      "fname": "braviaryhisui",
+      "id": "730",
+      "type1": "Psychic",
+      "type2": "Flying",
+      "generation": "5",
+      "hp": "110",
+      "atk": "83",
+      "def": "70",
+      "spa": "112",
+      "spd": "70",
+      "spe": "65",
+      "icon": "1237"
    },
    {
       "name": "Vullaby",
@@ -11157,7 +11397,7 @@ let pokedexList = [
       "spa": "110",
       "spd": "90",
       "spe": "121",
-      "icon": "966"
+      "icon": "1086"
    },
    {
       "name": "Thundurus",
@@ -11187,7 +11427,7 @@ let pokedexList = [
       "spa": "145",
       "spd": "80",
       "spe": "101",
-      "icon": "967"
+      "icon": "1087"
    },
    {
       "name": "Reshiram",
@@ -11247,7 +11487,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "80",
       "spe": "91",
-      "icon": "968"
+      "icon": "1088"
    },
    {
       "name": "Kyurem",
@@ -11277,7 +11517,7 @@ let pokedexList = [
       "spa": "120",
       "spd": "90",
       "spe": "95",
-      "icon": "969"
+      "icon": "1089"
    },
    {
       "name": "Kyurem White",
@@ -11292,7 +11532,7 @@ let pokedexList = [
       "spa": "170",
       "spd": "100",
       "spe": "95",
-      "icon": "970"
+      "icon": "1090"
    },
    {
       "name": "Keldeo",
@@ -11322,7 +11562,7 @@ let pokedexList = [
       "spa": "129",
       "spd": "90",
       "spe": "108",
-      "icon": "971"
+      "icon": "1091"
    },
    {
       "name": "Meloetta",
@@ -11352,7 +11592,7 @@ let pokedexList = [
       "spa": "77",
       "spd": "77",
       "spe": "128",
-      "icon": "972"
+      "icon": "1092"
    },
    {
       "name": "Genesect",
@@ -11517,7 +11757,7 @@ let pokedexList = [
       "spa": "153",
       "spd": "71",
       "spe": "132",
-      "icon": "1037"
+      "icon": "1157"
    },
    {
       "name": "Bunnelby",
@@ -11832,7 +12072,7 @@ let pokedexList = [
       "spa": "83",
       "spd": "81",
       "spe": "104",
-      "icon": "1015"
+      "icon": "1135"
    },
    {
       "name": "Honedge",
@@ -11892,7 +12132,7 @@ let pokedexList = [
       "spa": "150",
       "spd": "50",
       "spe": "60",
-      "icon": "1016"
+      "icon": "1136"
    },
    {
       "name": "Spritzee",
@@ -12255,6 +12495,21 @@ let pokedexList = [
       "icon": "705"
    },
    {
+      "name": "Sliggoo Hisui",
+      "fname": "sliggoohisui",
+      "id": "817",
+      "type1": "Steel",
+      "type2": "Dragon",
+      "generation": "6",
+      "hp": "58",
+      "atk": "75",
+      "def": "83",
+      "spa": "83",
+      "spd": "113",
+      "spe": "40",
+      "icon": "1238"
+   },
+   {
       "name": "Goodra",
       "fname": "goodra",
       "id": "818",
@@ -12268,6 +12523,21 @@ let pokedexList = [
       "spd": "150",
       "spe": "80",
       "icon": "706"
+   },
+   {
+      "name": "Goodra Hisui",
+      "fname": "goodrahisui",
+      "id": "818",
+      "type1": "Steel",
+      "type2": "Dragon",
+      "generation": "6",
+      "hp": "80",
+      "atk": "100",
+      "def": "100",
+      "spa": "110",
+      "spd": "150",
+      "spe": "60",
+      "icon": "1239"
    },
    {
       "name": "Klefki",
@@ -12465,6 +12735,21 @@ let pokedexList = [
       "icon": "713"
    },
    {
+      "name": "Avalugg Hisui",
+      "fname": "avalugghisui",
+      "id": "831",
+      "type1": "Ice",
+      "type2": "Rock",
+      "generation": "6",
+      "hp": "95",
+      "atk": "127",
+      "def": "184",
+      "spa": "34",
+      "spd": "36",
+      "spe": "38",
+      "icon": "1240"
+   },
+   {
       "name": "Noibat",
       "fname": "noibat",
       "id": "832",
@@ -12552,7 +12837,7 @@ let pokedexList = [
       "spa": "61",
       "spd": "85",
       "spe": "115",
-      "icon": "1038"
+      "icon": "1158"
    },
    {
       "name": "Zygarde Complete",
@@ -12567,7 +12852,7 @@ let pokedexList = [
       "spa": "91",
       "spd": "95",
       "spe": "85",
-      "icon": "1039"
+      "icon": "1159"
    },
    {
       "name": "Diancie",
@@ -12597,7 +12882,7 @@ let pokedexList = [
       "spa": "160",
       "spd": "110",
       "spe": "110",
-      "icon": "1165"
+      "icon": "1309"
    },
    {
       "name": "Hoopa",
@@ -12627,7 +12912,7 @@ let pokedexList = [
       "spa": "170",
       "spd": "130",
       "spe": "80",
-      "icon": "1018"
+      "icon": "1138"
    },
    {
       "name": "Volcanion",
@@ -12688,6 +12973,21 @@ let pokedexList = [
       "spd": "100",
       "spe": "70",
       "icon": "724"
+   },
+   {
+      "name": "Decidueye Hisui",
+      "fname": "decidueyehisui",
+      "id": "846",
+      "type1": "Grass",
+      "type2": "Fighting",
+      "generation": "6",
+      "hp": "88",
+      "atk": "112",
+      "def": "80",
+      "spa": "95",
+      "spd": "95",
+      "spe": "60",
+      "icon": "1241"
    },
    {
       "name": "Litten",
@@ -12957,7 +13257,7 @@ let pokedexList = [
       "spa": "98",
       "spd": "70",
       "spe": "93",
-      "icon": "1040"
+      "icon": "1160"
    },
    {
       "name": "Oricorio Pa'u",
@@ -12972,7 +13272,7 @@ let pokedexList = [
       "spa": "98",
       "spd": "70",
       "spe": "93",
-      "icon": "1041"
+      "icon": "1161"
    },
    {
       "name": "Oricorio Sensu",
@@ -12987,7 +13287,7 @@ let pokedexList = [
       "spa": "98",
       "spd": "70",
       "spe": "93",
-      "icon": "1042"
+      "icon": "1162"
    },
    {
       "name": "Cutiefly",
@@ -13062,7 +13362,7 @@ let pokedexList = [
       "spa": "55",
       "spd": "75",
       "spe": "82",
-      "icon": "1043"
+      "icon": "1163"
    },
    {
       "name": "Lycanroc Dusk",
@@ -13077,7 +13377,7 @@ let pokedexList = [
       "spa": "55",
       "spd": "65",
       "spe": "110",
-      "icon": "1060"
+      "icon": "1180"
    },
    {
       "name": "Wishiwashi",
@@ -13107,7 +13407,7 @@ let pokedexList = [
       "spa": "140",
       "spd": "135",
       "spe": "30",
-      "icon": "1044"
+      "icon": "1164"
    },
    {
       "name": "Mareanie",
@@ -13542,7 +13842,7 @@ let pokedexList = [
       "spa": "60",
       "spd": "100",
       "spe": "60",
-      "icon": "1045"
+      "icon": "1165"
    },
    {
       "name": "Komala",
@@ -13947,7 +14247,7 @@ let pokedexList = [
       "spa": "113",
       "spd": "109",
       "spe": "77",
-      "icon": "1061"
+      "icon": "1181"
    },
    {
       "name": "Necrozma Dawn Wings",
@@ -13962,7 +14262,7 @@ let pokedexList = [
       "spa": "157",
       "spd": "127",
       "spe": "77",
-      "icon": "1062"
+      "icon": "1182"
    },
    {
       "name": "Necrozma Ultra",
@@ -13977,7 +14277,7 @@ let pokedexList = [
       "spa": "167",
       "spd": "97",
       "spe": "129",
-      "icon": "1063"
+      "icon": "1183"
    },
    {
       "name": "Magearna",
@@ -14727,7 +15027,7 @@ let pokedexList = [
       "spa": "114",
       "spd": "70",
       "spe": "75",
-      "icon": "1082"
+      "icon": "1329"
    },
    {
       "name": "Sizzlipede",
@@ -15132,7 +15432,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "50",
       "spe": "130",
-      "icon": "1091"
+      "icon": "1211"
    },
    {
       "name": "Indeedee",
@@ -15162,7 +15462,7 @@ let pokedexList = [
       "spa": "95",
       "spd": "105",
       "spe": "85",
-      "icon": "1092"
+      "icon": "1212"
    },
    {
       "name": "Morpeko",
@@ -15192,7 +15492,7 @@ let pokedexList = [
       "spa": "70",
       "spd": "58",
       "spe": "97",
-      "icon": "1093"
+      "icon": "1213"
    },
    {
       "name": "Cufant",
@@ -15372,7 +15672,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "115",
       "spe": "148",
-      "icon": "1094"
+      "icon": "1214"
    },
    {
       "name": "Zamazenta",
@@ -15402,7 +15702,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "145",
       "spe": "128",
-      "icon": "1095"
+      "icon": "1215"
    },
    {
       "name": "Eternatus",
@@ -15432,7 +15732,7 @@ let pokedexList = [
       "spa": "125",
       "spd": "250",
       "spe": "130",
-      "icon": "1192"
+      "icon": "1336"
    },
    {
       "name": "Kubfu",
@@ -15582,7 +15882,7 @@ let pokedexList = [
       "spa": "85",
       "spd": "130",
       "spe": "50",
-      "icon": "1104"
+      "icon": "1224"
    },
    {
       "name": "Calyrex Shadow",
@@ -15597,7 +15897,7 @@ let pokedexList = [
       "spa": "165",
       "spd": "100",
       "spe": "150",
-      "icon": "1105"
+      "icon": "1225"
    },
    {
       "name": "Wyrdeer",
@@ -15612,7 +15912,7 @@ let pokedexList = [
       "spa": "105",
       "spd": "75",
       "spe": "65",
-      "icon": "0"
+      "icon": "899"
    },
    {
       "name": "Kleavor",
@@ -15627,7 +15927,7 @@ let pokedexList = [
       "spa": "45",
       "spd": "70",
       "spe": "85",
-      "icon": "0"
+      "icon": "900"
    },
    {
       "name": "Ursaluna",
@@ -15642,7 +15942,7 @@ let pokedexList = [
       "spa": "45",
       "spd": "80",
       "spe": "50",
-      "icon": "0"
+      "icon": "901"
    },
    {
       "name": "Basculegion",
@@ -15657,7 +15957,7 @@ let pokedexList = [
       "spa": "80",
       "spd": "75",
       "spe": "78",
-      "icon": "0"
+      "icon": "902"
    },
    {
       "name": "Basculegion F",
@@ -15672,7 +15972,7 @@ let pokedexList = [
       "spa": "100",
       "spd": "75",
       "spe": "78",
-      "icon": "0"
+      "icon": "1242"
    },
    {
       "name": "Sneasler",
@@ -15687,7 +15987,7 @@ let pokedexList = [
       "spa": "40",
       "spd": "80",
       "spe": "120",
-      "icon": "0"
+      "icon": "903"
    },
    {
       "name": "Overqwil",
@@ -15702,7 +16002,7 @@ let pokedexList = [
       "spa": "65",
       "spd": "65",
       "spe": "85",
-      "icon": "0"
+      "icon": "904"
    },
    {
       "name": "Enamorus",
@@ -15717,7 +16017,7 @@ let pokedexList = [
       "spa": "135",
       "spd": "80",
       "spe": "106",
-      "icon": "0"
+      "icon": "905"
    },
    {
       "name": "Enamorus Therian",
@@ -15732,8 +16032,1598 @@ let pokedexList = [
       "spa": "135",
       "spd": "100",
       "spe": "46",
-      "icon": "0"
+      "icon": "1243"
+   },
+   {
+      "name": "Sprigatito",
+      "fname": "sprigatito",
+      "id": "1050",
+      "type1": "Grass",
+      "type2": "",
+      "generation": "9",
+      "hp": "40",
+      "atk": "61",
+      "def": "54",
+      "spa": "45",
+      "spd": "45",
+      "spe": "65",
+      "icon": "906"
+   },
+   {
+      "name": "Floragato",
+      "fname": "floragato",
+      "id": "1051",
+      "type1": "Grass",
+      "type2": "",
+      "generation": "9",
+      "hp": "61",
+      "atk": "80",
+      "def": "63",
+      "spa": "60",
+      "spd": "63",
+      "spe": "83",
+      "icon": "907"
+   },
+   {
+      "name": "Meowscarada",
+      "fname": "meowscarada",
+      "id": "1052",
+      "type1": "Grass",
+      "type2": "Dark",
+      "generation": "9",
+      "hp": "76",
+      "atk": "110",
+      "def": "70",
+      "spa": "81",
+      "spd": "70",
+      "spe": "123",
+      "icon": "908"
+   },
+   {
+      "name": "Fuecoco",
+      "fname": "fuecoco",
+      "id": "1053",
+      "type1": "Fire",
+      "type2": "",
+      "generation": "9",
+      "hp": "67",
+      "atk": "45",
+      "def": "59",
+      "spa": "63",
+      "spd": "40",
+      "spe": "36",
+      "icon": "909"
+   },
+   {
+      "name": "Crocalor",
+      "fname": "crocalor",
+      "id": "1054",
+      "type1": "Fire",
+      "type2": "",
+      "generation": "9",
+      "hp": "81",
+      "atk": "55",
+      "def": "78",
+      "spa": "90",
+      "spd": "58",
+      "spe": "49",
+      "icon": "910"
+   },
+   {
+      "name": "Skeledirge",
+      "fname": "skeledirge",
+      "id": "1055",
+      "type1": "Fire",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "104",
+      "atk": "75",
+      "def": "100",
+      "spa": "110",
+      "spd": "75",
+      "spe": "66",
+      "icon": "911"
+   },
+   {
+      "name": "Quaxly",
+      "fname": "quaxly",
+      "id": "1056",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "55",
+      "atk": "65",
+      "def": "45",
+      "spa": "50",
+      "spd": "45",
+      "spe": "50",
+      "icon": "912"
+   },
+   {
+      "name": "Quaxwell",
+      "fname": "quaxwell",
+      "id": "1057",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "70",
+      "atk": "85",
+      "def": "65",
+      "spa": "65",
+      "spd": "60",
+      "spe": "65",
+      "icon": "913"
+   },
+   {
+      "name": "Quaquaval",
+      "fname": "quaquaval",
+      "id": "1058",
+      "type1": "Water",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "85",
+      "atk": "120",
+      "def": "80",
+      "spa": "85",
+      "spd": "75",
+      "spe": "85",
+      "icon": "914"
+   },
+   {
+      "name": "Lechonk",
+      "fname": "lechonk",
+      "id": "1059",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "54",
+      "atk": "45",
+      "def": "40",
+      "spa": "35",
+      "spd": "45",
+      "spe": "35",
+      "icon": "915"
+   },
+   {
+      "name": "Oinkologne",
+      "fname": "oinkologne",
+      "id": "1060",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "110",
+      "atk": "100",
+      "def": "75",
+      "spa": "59",
+      "spd": "80",
+      "spe": "65",
+      "icon": "916"
+   },
+   {
+      "name": "Oinkologne F",
+      "fname": "oinkolognef",
+      "id": "1061",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "115",
+      "atk": "90",
+      "def": "70",
+      "spa": "59",
+      "spd": "90",
+      "spe": "65",
+      "icon": "1248"
+   },
+   {
+      "name": "Dudunsparce",
+      "fname": "dudunsparce",
+      "id": "1062",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "125",
+      "atk": "100",
+      "def": "80",
+      "spa": "85",
+      "spd": "75",
+      "spe": "55",
+      "icon": "917"
+   },
+   {
+      "name": "Tarountula",
+      "fname": "tarountula",
+      "id": "1063",
+      "type1": "Bug",
+      "type2": "",
+      "generation": "9",
+      "hp": "35",
+      "atk": "41",
+      "def": "45",
+      "spa": "29",
+      "spd": "40",
+      "spe": "20",
+      "icon": "918"
+   },
+   {
+      "name": "Spidops",
+      "fname": "spidops",
+      "id": "1064",
+      "type1": "Bug",
+      "type2": "",
+      "generation": "9",
+      "hp": "60",
+      "atk": "79",
+      "def": "92",
+      "spa": "52",
+      "spd": "86",
+      "spe": "35",
+      "icon": "919"
+   },
+   {
+      "name": "Nymble",
+      "fname": "nymble",
+      "id": "1065",
+      "type1": "Bug",
+      "type2": "",
+      "generation": "9",
+      "hp": "33",
+      "atk": "46",
+      "def": "40",
+      "spa": "21",
+      "spd": "25",
+      "spe": "45",
+      "icon": "920"
+   },
+   {
+      "name": "Lokix",
+      "fname": "lokix",
+      "id": "1066",
+      "type1": "Bug",
+      "type2": "Dark",
+      "generation": "9",
+      "hp": "71",
+      "atk": "102",
+      "def": "78",
+      "spa": "52",
+      "spd": "55",
+      "spe": "92",
+      "icon": "921"
+   },
+   {
+      "name": "Rellor",
+      "fname": "rellor",
+      "id": "1067",
+      "type1": "Bug",
+      "type2": "",
+      "generation": "9",
+      "hp": "41",
+      "atk": "50",
+      "def": "60",
+      "spa": "31",
+      "spd": "58",
+      "spe": "30",
+      "icon": "922"
+   },
+   {
+      "name": "Rabsca",
+      "fname": "rabsca",
+      "id": "1068",
+      "type1": "Bug",
+      "type2": "Psychic",
+      "generation": "9",
+      "hp": "75",
+      "atk": "50",
+      "def": "85",
+      "spa": "115",
+      "spd": "100",
+      "spe": "45",
+      "icon": "923"
+   },
+   {
+      "name": "Greavard",
+      "fname": "greavard",
+      "id": "1069",
+      "type1": "Ghost",
+      "type2": "",
+      "generation": "9",
+      "hp": "50",
+      "atk": "61",
+      "def": "60",
+      "spa": "30",
+      "spd": "55",
+      "spe": "34",
+      "icon": "924"
+   },
+   {
+      "name": "Houndstone",
+      "fname": "houndstone",
+      "id": "1070",
+      "type1": "Ghost",
+      "type2": "",
+      "generation": "9",
+      "hp": "72",
+      "atk": "101",
+      "def": "100",
+      "spa": "50",
+      "spd": "97",
+      "spe": "68",
+      "icon": "925"
+   },
+   {
+      "name": "Flittle",
+      "fname": "flittle",
+      "id": "1071",
+      "type1": "Psychic",
+      "type2": "",
+      "generation": "9",
+      "hp": "30",
+      "atk": "35",
+      "def": "30",
+      "spa": "55",
+      "spd": "40",
+      "spe": "75",
+      "icon": "926"
+   },
+   {
+      "name": "Espathra",
+      "fname": "espathra",
+      "id": "1072",
+      "type1": "Psychic",
+      "type2": "",
+      "generation": "9",
+      "hp": "95",
+      "atk": "60",
+      "def": "60",
+      "spa": "101",
+      "spd": "60",
+      "spe": "105",
+      "icon": "927"
+   },
+   {
+      "name": "Farigiraf",
+      "fname": "farigiraf",
+      "id": "1073",
+      "type1": "Normal",
+      "type2": "Psychic",
+      "generation": "9",
+      "hp": "120",
+      "atk": "90",
+      "def": "70",
+      "spa": "110",
+      "spd": "70",
+      "spe": "60",
+      "icon": "928"
+   },
+   {
+      "name": "Wiglett",
+      "fname": "wiglett",
+      "id": "1074",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "10",
+      "atk": "55",
+      "def": "25",
+      "spa": "35",
+      "spd": "25",
+      "spe": "95",
+      "icon": "929"
+   },
+   {
+      "name": "Wugtrio",
+      "fname": "wugtrio",
+      "id": "1075",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "35",
+      "atk": "100",
+      "def": "50",
+      "spa": "50",
+      "spd": "70",
+      "spe": "120",
+      "icon": "930"
+   },
+   {
+      "name": "Dondozo",
+      "fname": "dondozo",
+      "id": "1076",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "150",
+      "atk": "100",
+      "def": "115",
+      "spa": "65",
+      "spd": "65",
+      "spe": "35",
+      "icon": "931"
+   },
+   {
+      "name": "Veluza",
+      "fname": "veluza",
+      "id": "1077",
+      "type1": "Water",
+      "type2": "Psychic",
+      "generation": "9",
+      "hp": "90",
+      "atk": "102",
+      "def": "73",
+      "spa": "78",
+      "spd": "65",
+      "spe": "70",
+      "icon": "932"
+   },
+   {
+      "name": "Finizen",
+      "fname": "finizen",
+      "id": "1078",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "70",
+      "atk": "45",
+      "def": "40",
+      "spa": "45",
+      "spd": "40",
+      "spe": "75",
+      "icon": "933"
+   },
+   {
+      "name": "Palafin",
+      "fname": "palafin",
+      "id": "1079",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "100",
+      "atk": "70",
+      "def": "72",
+      "spa": "53",
+      "spd": "62",
+      "spe": "100",
+      "icon": "934"
+   },
+   {
+      "name": "Palafin Hero",
+      "fname": "palafinhero",
+      "id": "1080",
+      "type1": "Water",
+      "type2": "",
+      "generation": "9",
+      "hp": "100",
+      "atk": "160",
+      "def": "97",
+      "spa": "106",
+      "spd": "87",
+      "spe": "100",
+      "icon": "1249"
+   },
+   {
+      "name": "Smoliv",
+      "fname": "smoliv",
+      "id": "1081",
+      "type1": "Grass",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "41",
+      "atk": "35",
+      "def": "45",
+      "spa": "58",
+      "spd": "51",
+      "spe": "30",
+      "icon": "935"
+   },
+   {
+      "name": "Dolliv",
+      "fname": "dolliv",
+      "id": "1082",
+      "type1": "Grass",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "52",
+      "atk": "53",
+      "def": "60",
+      "spa": "78",
+      "spd": "78",
+      "spe": "33",
+      "icon": "936"
+   },
+   {
+      "name": "Arboliva",
+      "fname": "arboliva",
+      "id": "1083",
+      "type1": "Grass",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "78",
+      "atk": "69",
+      "def": "90",
+      "spa": "125",
+      "spd": "109",
+      "spe": "39",
+      "icon": "937"
+   },
+   {
+      "name": "Capsakid",
+      "fname": "capsakid",
+      "id": "1084",
+      "type1": "Grass",
+      "type2": "",
+      "generation": "9",
+      "hp": "52",
+      "atk": "62",
+      "def": "40",
+      "spa": "62",
+      "spd": "40",
+      "spe": "50",
+      "icon": "938"
+   },
+   {
+      "name": "Scovillain",
+      "fname": "scovillain",
+      "id": "1085",
+      "type1": "Grass",
+      "type2": "Fire",
+      "generation": "9",
+      "hp": "65",
+      "atk": "108",
+      "def": "65",
+      "spa": "108",
+      "spd": "65",
+      "spe": "75",
+      "icon": "939"
+   },
+   {
+      "name": "Tadbulb",
+      "fname": "tadbulb",
+      "id": "1086",
+      "type1": "Electric",
+      "type2": "",
+      "generation": "9",
+      "hp": "61",
+      "atk": "31",
+      "def": "41",
+      "spa": "59",
+      "spd": "35",
+      "spe": "45",
+      "icon": "940"
+   },
+   {
+      "name": "Bellibolt",
+      "fname": "bellibolt",
+      "id": "1087",
+      "type1": "Electric",
+      "type2": "",
+      "generation": "9",
+      "hp": "109",
+      "atk": "64",
+      "def": "91",
+      "spa": "103",
+      "spd": "83",
+      "spe": "45",
+      "icon": "941"
+   },
+   {
+      "name": "Varoom",
+      "fname": "varoom",
+      "id": "1088",
+      "type1": "Steel",
+      "type2": "Poison",
+      "generation": "9",
+      "hp": "45",
+      "atk": "70",
+      "def": "63",
+      "spa": "30",
+      "spd": "45",
+      "spe": "47",
+      "icon": "942"
+   },
+   {
+      "name": "Revavroom",
+      "fname": "revavroom",
+      "id": "1089",
+      "type1": "Steel",
+      "type2": "Poison",
+      "generation": "9",
+      "hp": "80",
+      "atk": "119",
+      "def": "90",
+      "spa": "54",
+      "spd": "67",
+      "spe": "90",
+      "icon": "943"
+   },
+   {
+      "name": "Orthworm",
+      "fname": "orthworm",
+      "id": "1090",
+      "type1": "Steel",
+      "type2": "",
+      "generation": "9",
+      "hp": "70",
+      "atk": "85",
+      "def": "145",
+      "spa": "60",
+      "spd": "55",
+      "spe": "65",
+      "icon": "944"
+   },
+   {
+      "name": "Tandemaus",
+      "fname": "tandemaus",
+      "id": "1091",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "50",
+      "atk": "50",
+      "def": "45",
+      "spa": "40",
+      "spd": "45",
+      "spe": "75",
+      "icon": "945"
+   },
+   {
+      "name": "Maushold",
+      "fname": "maushold",
+      "id": "1092",
+      "type1": "Normal",
+      "type2": "",
+      "generation": "9",
+      "hp": "74",
+      "atk": "75",
+      "def": "70",
+      "spa": "65",
+      "spd": "75",
+      "spe": "111",
+      "icon": "946"
+   },
+   {
+      "name": "Cetoddle",
+      "fname": "cetoddle",
+      "id": "1093",
+      "type1": "Ice",
+      "type2": "",
+      "generation": "9",
+      "hp": "108",
+      "atk": "68",
+      "def": "45",
+      "spa": "30",
+      "spd": "40",
+      "spe": "43",
+      "icon": "947"
+   },
+   {
+      "name": "Cetitan",
+      "fname": "cetitan",
+      "id": "1094",
+      "type1": "Ice",
+      "type2": "",
+      "generation": "9",
+      "hp": "170",
+      "atk": "113",
+      "def": "65",
+      "spa": "45",
+      "spd": "55",
+      "spe": "73",
+      "icon": "948"
+   },
+   {
+      "name": "Frigibax",
+      "fname": "frigibax",
+      "id": "1095",
+      "type1": "Dragon",
+      "type2": "Ice",
+      "generation": "9",
+      "hp": "65",
+      "atk": "75",
+      "def": "45",
+      "spa": "35",
+      "spd": "45",
+      "spe": "55",
+      "icon": "949"
+   },
+   {
+      "name": "Arctibax",
+      "fname": "arctibax",
+      "id": "1096",
+      "type1": "Dragon",
+      "type2": "Ice",
+      "generation": "9",
+      "hp": "90",
+      "atk": "95",
+      "def": "66",
+      "spa": "45",
+      "spd": "65",
+      "spe": "62",
+      "icon": "950"
+   },
+   {
+      "name": "Baxcalibur",
+      "fname": "baxcalibur",
+      "id": "1097",
+      "type1": "Dragon",
+      "type2": "Ice",
+      "generation": "9",
+      "hp": "115",
+      "atk": "145",
+      "def": "92",
+      "spa": "75",
+      "spd": "86",
+      "spe": "87",
+      "icon": "951"
+   },
+   {
+      "name": "Tatsugiri",
+      "fname": "tatsugiri",
+      "id": "1098",
+      "type1": "Dragon",
+      "type2": "Water",
+      "generation": "9",
+      "hp": "68",
+      "atk": "50",
+      "def": "60",
+      "spa": "120",
+      "spd": "95",
+      "spe": "82",
+      "icon": "952"
+   },
+   {
+      "name": "Cyclizar",
+      "fname": "cyclizar",
+      "id": "1099",
+      "type1": "Dragon",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "70",
+      "atk": "95",
+      "def": "65",
+      "spa": "85",
+      "spd": "65",
+      "spe": "121",
+      "icon": "953"
+   },
+   {
+      "name": "Pawmi",
+      "fname": "pawmi",
+      "id": "1100",
+      "type1": "Electric",
+      "type2": "",
+      "generation": "9",
+      "hp": "45",
+      "atk": "50",
+      "def": "20",
+      "spa": "40",
+      "spd": "25",
+      "spe": "60",
+      "icon": "954"
+   },
+   {
+      "name": "Pawmo",
+      "fname": "pawmo",
+      "id": "1101",
+      "type1": "Electric",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "60",
+      "atk": "75",
+      "def": "40",
+      "spa": "50",
+      "spd": "40",
+      "spe": "85",
+      "icon": "955"
+   },
+   {
+      "name": "Pawmot",
+      "fname": "pawmot",
+      "id": "1102",
+      "type1": "Electric",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "70",
+      "atk": "115",
+      "def": "70",
+      "spa": "70",
+      "spd": "60",
+      "spe": "105",
+      "icon": "956"
+   },
+   {
+      "name": "Wattrel",
+      "fname": "wattrel",
+      "id": "1103",
+      "type1": "Electric",
+      "type2": "Flying",
+      "generation": "9",
+      "hp": "40",
+      "atk": "40",
+      "def": "35",
+      "spa": "55",
+      "spd": "40",
+      "spe": "70",
+      "icon": "957"
+   },
+   {
+      "name": "Kilowattrel",
+      "fname": "kilowattrel",
+      "id": "1104",
+      "type1": "Electric",
+      "type2": "Flying",
+      "generation": "9",
+      "hp": "70",
+      "atk": "70",
+      "def": "60",
+      "spa": "105",
+      "spd": "60",
+      "spe": "125",
+      "icon": "958"
+   },
+   {
+      "name": "Bombirdier",
+      "fname": "bombirdier",
+      "id": "1105",
+      "type1": "Flying",
+      "type2": "Dark",
+      "generation": "9",
+      "hp": "70",
+      "atk": "103",
+      "def": "85",
+      "spa": "60",
+      "spd": "85",
+      "spe": "82",
+      "icon": "959"
+   },
+   {
+      "name": "Squawkabilly",
+      "fname": "squawkabilly",
+      "id": "1106",
+      "type1": "Normal",
+      "type2": "Flying",
+      "generation": "9",
+      "hp": "82",
+      "atk": "96",
+      "def": "51",
+      "spa": "45",
+      "spd": "51",
+      "spe": "92",
+      "icon": "960"
+   },
+   {
+      "name": "Flamigo",
+      "fname": "flamigo",
+      "id": "1107",
+      "type1": "Flying",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "82",
+      "atk": "115",
+      "def": "74",
+      "spa": "75",
+      "spd": "64",
+      "spe": "90",
+      "icon": "961"
+   },
+   {
+      "name": "Klawf",
+      "fname": "klawf",
+      "id": "1108",
+      "type1": "Rock",
+      "type2": "",
+      "generation": "9",
+      "hp": "70",
+      "atk": "100",
+      "def": "115",
+      "spa": "35",
+      "spd": "55",
+      "spe": "75",
+      "icon": "962"
+   },
+   {
+      "name": "Nacli",
+      "fname": "nacli",
+      "id": "1109",
+      "type1": "Rock",
+      "type2": "",
+      "generation": "9",
+      "hp": "55",
+      "atk": "55",
+      "def": "75",
+      "spa": "35",
+      "spd": "35",
+      "spe": "25",
+      "icon": "963"
+   },
+   {
+      "name": "Naclstack",
+      "fname": "naclstack",
+      "id": "1110",
+      "type1": "Rock",
+      "type2": "",
+      "generation": "9",
+      "hp": "60",
+      "atk": "60",
+      "def": "100",
+      "spa": "35",
+      "spd": "65",
+      "spe": "35",
+      "icon": "964"
+   },
+   {
+      "name": "Garganacl",
+      "fname": "garganacl",
+      "id": "1111",
+      "type1": "Rock",
+      "type2": "",
+      "generation": "9",
+      "hp": "100",
+      "atk": "100",
+      "def": "130",
+      "spa": "45",
+      "spd": "90",
+      "spe": "35",
+      "icon": "965"
+   },
+   {
+      "name": "Glimmet",
+      "fname": "glimmet",
+      "id": "1112",
+      "type1": "Rock",
+      "type2": "Poison",
+      "generation": "9",
+      "hp": "48",
+      "atk": "35",
+      "def": "42",
+      "spa": "105",
+      "spd": "60",
+      "spe": "60",
+      "icon": "966"
+   },
+   {
+      "name": "Glimmora",
+      "fname": "glimmora",
+      "id": "1113",
+      "type1": "Rock",
+      "type2": "Poison",
+      "generation": "9",
+      "hp": "83",
+      "atk": "55",
+      "def": "90",
+      "spa": "130",
+      "spd": "81",
+      "spe": "86",
+      "icon": "967"
+   },
+   {
+      "name": "Shroodle",
+      "fname": "shroodle",
+      "id": "1114",
+      "type1": "Poison",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "40",
+      "atk": "65",
+      "def": "35",
+      "spa": "40",
+      "spd": "35",
+      "spe": "75",
+      "icon": "968"
+   },
+   {
+      "name": "Grafaiai",
+      "fname": "grafaiai",
+      "id": "1115",
+      "type1": "Poison",
+      "type2": "Normal",
+      "generation": "9",
+      "hp": "63",
+      "atk": "95",
+      "def": "65",
+      "spa": "80",
+      "spd": "72",
+      "spe": "110",
+      "icon": "969"
+   },
+   {
+      "name": "Fidough",
+      "fname": "fidough",
+      "id": "1116",
+      "type1": "Fairy",
+      "type2": "",
+      "generation": "9",
+      "hp": "37",
+      "atk": "55",
+      "def": "70",
+      "spa": "30",
+      "spd": "55",
+      "spe": "65",
+      "icon": "970"
+   },
+   {
+      "name": "Dachsbun",
+      "fname": "dachsbun",
+      "id": "1117",
+      "type1": "Fairy",
+      "type2": "",
+      "generation": "9",
+      "hp": "57",
+      "atk": "80",
+      "def": "115",
+      "spa": "50",
+      "spd": "80",
+      "spe": "95",
+      "icon": "971"
+   },
+   {
+      "name": "Maschiff",
+      "fname": "maschiff",
+      "id": "1118",
+      "type1": "Dark",
+      "type2": "",
+      "generation": "9",
+      "hp": "60",
+      "atk": "78",
+      "def": "60",
+      "spa": "40",
+      "spd": "51",
+      "spe": "51",
+      "icon": "972"
+   },
+   {
+      "name": "Mabosstiff",
+      "fname": "mabosstiff",
+      "id": "1119",
+      "type1": "Dark",
+      "type2": "",
+      "generation": "9",
+      "hp": "80",
+      "atk": "120",
+      "def": "90",
+      "spa": "60",
+      "spd": "70",
+      "spe": "85",
+      "icon": "973"
+   },
+   {
+      "name": "Bramblin",
+      "fname": "bramblin",
+      "id": "1120",
+      "type1": "Grass",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "40",
+      "atk": "65",
+      "def": "30",
+      "spa": "45",
+      "spd": "35",
+      "spe": "60",
+      "icon": "974"
+   },
+   {
+      "name": "Brambleghast",
+      "fname": "brambleghast",
+      "id": "1121",
+      "type1": "Grass",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "55",
+      "atk": "115",
+      "def": "70",
+      "spa": "80",
+      "spd": "70",
+      "spe": "90",
+      "icon": "975"
+   },
+   {
+      "name": "Gimmighoul",
+      "fname": "gimmighoul",
+      "id": "1122",
+      "type1": "Ghost",
+      "type2": "",
+      "generation": "9",
+      "hp": "45",
+      "atk": "30",
+      "def": "70",
+      "spa": "75",
+      "spd": "70",
+      "spe": "10",
+      "icon": "976"
+   },
+   {
+      "name": "Gimmighoul Roaming",
+      "fname": "gimmighoulroaming",
+      "id": "1123",
+      "type1": "Ghost",
+      "type2": "",
+      "generation": "9",
+      "hp": "45",
+      "atk": "30",
+      "def": "25",
+      "spa": "75",
+      "spd": "45",
+      "spe": "80",
+      "icon": "1256"
+   },
+   {
+      "name": "Gholdengo",
+      "fname": "gholdengo",
+      "id": "1124",
+      "type1": "Steel",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "87",
+      "atk": "60",
+      "def": "95",
+      "spa": "133",
+      "spd": "91",
+      "spe": "84",
+      "icon": "977"
+   },
+   {
+      "name": "Great Tusk",
+      "fname": "greattusk",
+      "id": "1125",
+      "type1": "Ground",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "115",
+      "atk": "131",
+      "def": "131",
+      "spa": "53",
+      "spd": "53",
+      "spe": "87",
+      "icon": "978"
+   },
+   {
+      "name": "Brute Bonnet",
+      "fname": "brutebonnet",
+      "id": "1126",
+      "type1": "Grass",
+      "type2": "Dark",
+      "generation": "9",
+      "hp": "111",
+      "atk": "127",
+      "def": "99",
+      "spa": "79",
+      "spd": "99",
+      "spe": "55",
+      "icon": "979"
+   },
+   {
+      "name": "Sandy Shocks",
+      "fname": "sandyshocks",
+      "id": "1127",
+      "type1": "Electric",
+      "type2": "Ground",
+      "generation": "9",
+      "hp": "85",
+      "atk": "81",
+      "def": "97",
+      "spa": "121",
+      "spd": "85",
+      "spe": "101",
+      "icon": "981"
+   },
+   {
+      "name": "Scream Tail",
+      "fname": "screamtail",
+      "id": "1128",
+      "type1": "Fairy",
+      "type2": "Psychic",
+      "generation": "9",
+      "hp": "115",
+      "atk": "65",
+      "def": "99",
+      "spa": "65",
+      "spd": "115",
+      "spe": "111",
+      "icon": "982"
+   },
+   {
+      "name": "Flutter Mane",
+      "fname": "fluttermane",
+      "id": "1129",
+      "type1": "Ghost",
+      "type2": "Fairy",
+      "generation": "9",
+      "hp": "55",
+      "atk": "55",
+      "def": "55",
+      "spa": "135",
+      "spd": "135",
+      "spe": "135",
+      "icon": "983"
+   },
+   {
+      "name": "Slither Wing",
+      "fname": "slitherwing",
+      "id": "1130",
+      "type1": "Bug",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "85",
+      "atk": "135",
+      "def": "79",
+      "spa": "85",
+      "spd": "105",
+      "spe": "81",
+      "icon": "984"
+   },
+   {
+      "name": "Roaring Moon",
+      "fname": "roaringmoon",
+      "id": "1131",
+      "type1": "Dragon",
+      "type2": "Dark",
+      "generation": "9",
+      "hp": "105",
+      "atk": "139",
+      "def": "71",
+      "spa": "55",
+      "spd": "101",
+      "spe": "119",
+      "icon": "985"
+   },
+   {
+      "name": "Iron Treads",
+      "fname": "irontreads",
+      "id": "1132",
+      "type1": "Ground",
+      "type2": "Steel",
+      "generation": "9",
+      "hp": "90",
+      "atk": "112",
+      "def": "120",
+      "spa": "72",
+      "spd": "70",
+      "spe": "106",
+      "icon": "986"
+   },
+   {
+      "name": "Iron Moth",
+      "fname": "ironmoth",
+      "id": "1133",
+      "type1": "Fire",
+      "type2": "Poison",
+      "generation": "9",
+      "hp": "80",
+      "atk": "70",
+      "def": "60",
+      "spa": "140",
+      "spd": "110",
+      "spe": "110",
+      "icon": "988"
+   },
+   {
+      "name": "Iron Hands",
+      "fname": "ironhands",
+      "id": "1134",
+      "type1": "Fighting",
+      "type2": "Electric",
+      "generation": "9",
+      "hp": "154",
+      "atk": "140",
+      "def": "108",
+      "spa": "50",
+      "spd": "68",
+      "spe": "50",
+      "icon": "989"
+   },
+   {
+      "name": "Iron Jugulis",
+      "fname": "ironjugulis",
+      "id": "1135",
+      "type1": "Dark",
+      "type2": "Flying",
+      "generation": "9",
+      "hp": "94",
+      "atk": "80",
+      "def": "86",
+      "spa": "122",
+      "spd": "80",
+      "spe": "108",
+      "icon": "990"
+   },
+   {
+      "name": "Iron Thorns",
+      "fname": "ironthorns",
+      "id": "1136",
+      "type1": "Rock",
+      "type2": "Electric",
+      "generation": "9",
+      "hp": "100",
+      "atk": "134",
+      "def": "110",
+      "spa": "70",
+      "spd": "84",
+      "spe": "72",
+      "icon": "991"
+   },
+   {
+      "name": "Iron Bundle",
+      "fname": "ironbundle",
+      "id": "1137",
+      "type1": "Ice",
+      "type2": "Water",
+      "generation": "9",
+      "hp": "56",
+      "atk": "80",
+      "def": "114",
+      "spa": "124",
+      "spd": "60",
+      "spe": "136",
+      "icon": "992"
+   },
+   {
+      "name": "Iron Valiant",
+      "fname": "ironvaliant",
+      "id": "1138",
+      "type1": "Fairy",
+      "type2": "Fighting",
+      "generation": "9",
+      "hp": "74",
+      "atk": "130",
+      "def": "90",
+      "spa": "120",
+      "spd": "60",
+      "spe": "116",
+      "icon": "993"
+   },
+   {
+      "name": "Ting-Lu",
+      "fname": "tinglu",
+      "id": "1139",
+      "type1": "Dark",
+      "type2": "Ground",
+      "generation": "9",
+      "hp": "155",
+      "atk": "110",
+      "def": "125",
+      "spa": "55",
+      "spd": "80",
+      "spe": "45",
+      "icon": "994"
+   },
+   {
+      "name": "Chien-Pao",
+      "fname": "chienpao",
+      "id": "1140",
+      "type1": "Dark",
+      "type2": "Ice",
+      "generation": "9",
+      "hp": "80",
+      "atk": "120",
+      "def": "80",
+      "spa": "90",
+      "spd": "65",
+      "spe": "135",
+      "icon": "995"
+   },
+   {
+      "name": "Wo-Chien",
+      "fname": "wochien",
+      "id": "1141",
+      "type1": "Dark",
+      "type2": "Grass",
+      "generation": "9",
+      "hp": "85",
+      "atk": "85",
+      "def": "100",
+      "spa": "95",
+      "spd": "135",
+      "spe": "70",
+      "icon": "996"
+   },
+   {
+      "name": "Chi-Yu",
+      "fname": "chiyu",
+      "id": "1142",
+      "type1": "Dark",
+      "type2": "Fire",
+      "generation": "9",
+      "hp": "55",
+      "atk": "80",
+      "def": "80",
+      "spa": "135",
+      "spd": "120",
+      "spe": "100",
+      "icon": "997"
+   },
+   {
+      "name": "Koraidon",
+      "fname": "koraidon",
+      "id": "1143",
+      "type1": "Fighting",
+      "type2": "Dragon",
+      "generation": "9",
+      "hp": "100",
+      "atk": "135",
+      "def": "115",
+      "spa": "85",
+      "spd": "100",
+      "spe": "135",
+      "icon": "998"
+   },
+   {
+      "name": "Miraidon",
+      "fname": "miraidon",
+      "id": "1144",
+      "type1": "Electric",
+      "type2": "Dragon",
+      "generation": "9",
+      "hp": "100",
+      "atk": "85",
+      "def": "100",
+      "spa": "135",
+      "spd": "115",
+      "spe": "135",
+      "icon": "999"
+   },
+   {
+      "name": "Tinkatink",
+      "fname": "tinkatink",
+      "id": "1145",
+      "type1": "Fairy",
+      "type2": "Steel",
+      "generation": "9",
+      "hp": "50",
+      "atk": "45",
+      "def": "45",
+      "spa": "35",
+      "spd": "64",
+      "spe": "58",
+      "icon": "1000"
+   },
+   {
+      "name": "Tinkatuff",
+      "fname": "tinkatuff",
+      "id": "1146",
+      "type1": "Fairy",
+      "type2": "Steel",
+      "generation": "9",
+      "hp": "65",
+      "atk": "55",
+      "def": "55",
+      "spa": "45",
+      "spd": "82",
+      "spe": "78",
+      "icon": "1001"
+   },
+   {
+      "name": "Tinkaton",
+      "fname": "tinkaton",
+      "id": "1147",
+      "type1": "Fairy",
+      "type2": "Steel",
+      "generation": "9",
+      "hp": "85",
+      "atk": "75",
+      "def": "77",
+      "spa": "70",
+      "spd": "105",
+      "spe": "94",
+      "icon": "1002"
+   },
+   {
+      "name": "Charcadet",
+      "fname": "charcadet",
+      "id": "1148",
+      "type1": "Fire",
+      "type2": "",
+      "generation": "9",
+      "hp": "40",
+      "atk": "50",
+      "def": "40",
+      "spa": "50",
+      "spd": "40",
+      "spe": "35",
+      "icon": "1003"
+   },
+   {
+      "name": "Armarouge",
+      "fname": "armarouge",
+      "id": "1149",
+      "type1": "Fire",
+      "type2": "Psychic",
+      "generation": "9",
+      "hp": "85",
+      "atk": "60",
+      "def": "100",
+      "spa": "125",
+      "spd": "80",
+      "spe": "75",
+      "icon": "1004"
+   },
+   {
+      "name": "Ceruledge",
+      "fname": "ceruledge",
+      "id": "1150",
+      "type1": "Fire",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "75",
+      "atk": "125",
+      "def": "80",
+      "spa": "60",
+      "spd": "100",
+      "spe": "85",
+      "icon": "1005"
+   },
+   {
+      "name": "Toedscool",
+      "fname": "toedscool",
+      "id": "1151",
+      "type1": "Ground",
+      "type2": "Grass",
+      "generation": "9",
+      "hp": "40",
+      "atk": "40",
+      "def": "35",
+      "spa": "50",
+      "spd": "100",
+      "spe": "70",
+      "icon": "1006"
+   },
+   {
+      "name": "Toedscruel",
+      "fname": "toedscruel",
+      "id": "1152",
+      "type1": "Ground",
+      "type2": "Grass",
+      "generation": "9",
+      "hp": "80",
+      "atk": "70",
+      "def": "65",
+      "spa": "80",
+      "spd": "120",
+      "spe": "100",
+      "icon": "1007"
+   },
+   {
+      "name": "Kingambit",
+      "fname": "kingambit",
+      "id": "1153",
+      "type1": "Dark",
+      "type2": "Steel",
+      "generation": "9",
+      "hp": "100",
+      "atk": "135",
+      "def": "120",
+      "spa": "60",
+      "spd": "85",
+      "spe": "50",
+      "icon": "1008"
+   },
+   {
+      "name": "Clodsire",
+      "fname": "clodsire",
+      "id": "1154",
+      "type1": "Poison",
+      "type2": "Ground",
+      "generation": "9",
+      "hp": "130",
+      "atk": "75",
+      "def": "60",
+      "spa": "45",
+      "spd": "100",
+      "spe": "20",
+      "icon": "1009"
+   },
+   {
+      "name": "Annihilape",
+      "fname": "annihilape",
+      "id": "1155",
+      "type1": "Fighting",
+      "type2": "Ghost",
+      "generation": "9",
+      "hp": "110",
+      "atk": "115",
+      "def": "80",
+      "spa": "50",
+      "spd": "90",
+      "spe": "90",
+      "icon": "1010"
    }
-]
+];
 
 export default pokedexList;

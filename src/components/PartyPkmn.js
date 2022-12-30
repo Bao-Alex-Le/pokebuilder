@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import Stats from './Stats';
 import './styles/PartyPkmn.css';
 import moveData from './utils/moves.json';
+import { typeList } from './utils/typeData';
 import items from './utils/items.json';
 
 class PartyPkmn extends React.Component {
@@ -10,15 +11,17 @@ class PartyPkmn extends React.Component {
         super(props);
 
         this.handlePartyPkmnClick = this.handlePartyPkmnClick.bind(this);
-        this.handleReturnClick = this.handleReturnClick.bind(this);
-        this.handleRemoveClick = this.handleRemoveClick.bind(this);
-        this.handleItemClick = this.handleItemClick.bind(this);
-        this.handleAbilitySelect = this.handleAbilitySelect.bind(this);
+        this.handleReturnClick    = this.handleReturnClick.bind(this);
+        this.handleRemoveClick    = this.handleRemoveClick.bind(this);
+        this.handleItemClick      = this.handleItemClick.bind(this);
+        this.handleAbilitySelect  = this.handleAbilitySelect.bind(this);
+        this.handleTeraSelect     = this.handleTeraSelect.bind(this);
 
         this.ref = React.createRef();
     }
 
     componentDidMount() {
+        // keeps proper element in focus when component re-renders
         if (this.props.display == 'items') {
             this.ref.current.focus();
         }
@@ -46,15 +49,22 @@ class PartyPkmn extends React.Component {
         this.props.onAbilitySelect(e.target.value, this.props.slot);
     }
 
+    handleTeraSelect(e) {
+        this.props.onTeraSelect(e.target.value, this.props.slot);
+    }
+
     render() {
         const pokemonData = this.props.pokemonData;
 
-        let pokemonImgName;
-        let imageStyle;
-        let abilityList;
+        let pokemonImgName, imageStyle, abilityList, typeOptions;
         if (pokemonData) {
             pokemonImgName = pokemonData['name'].replaceAll(':','').replaceAll('%','');
-            const pokemonImg = require(`../img/HDsprites/${pokemonImgName}.png`).replaceAll(' ', '%20').replaceAll('\'', '%27');
+            let pokemonImg;
+            try {
+                pokemonImg = require(`../img/HDsprites/${pokemonImgName}.png`).replaceAll(' ', '%20').replaceAll('\'', '%27');
+            } catch(err) {
+                pokemonImg = require(`../img/HDsprites/Unown.png`).replaceAll(' ', '%20').replaceAll('\'', '%27');
+            }
             const justifyContent = this.props.display == 'party' ? 'flex-end' : 'space-between';
 
             imageStyle = { // setting style for div containing pokemon image
@@ -78,10 +88,16 @@ class PartyPkmn extends React.Component {
                     return option;
                 }
             });
+
+            typeOptions = typeList.map((type, index) => {
+                const option = this.props.tera == type
+                                ? <option key={index} value={type} selected>{type}</option>
+                                : <option key={index} value={type}>{type}</option>
+                return option;
+            });
         }
 
         const itemLabel = items[this.props.item] ? items[this.props.item]['name'] : '';
-
         const empty = pokemonData ? 'filled': 'empty';
 
         return (
@@ -91,25 +107,27 @@ class PartyPkmn extends React.Component {
                     <div className='party slot filled'>
                         <div className='party icon'>
                             <div className='remove' onClick={this.handleRemoveClick}></div>
-                            <div className="icon sprite name">
-                                <div className='icon-image' style={imageStyle} onClick={this.handlePartyPkmnClick} ref={this.ref} tabIndex='0'></div>
-                                <h5 className='party pkmn-name'>{this.props.name}</h5>
+                            <div className='icon-container'>
+                                <div className='icon sprite name'>
+                                    <div className='icon-image' style={imageStyle} onClick={this.handlePartyPkmnClick} ref={this.ref} tabIndex='0'></div>
+                                    <h5 className='party pkmn-name'>{this.props.name}</h5>
+                                </div>
+                                <div className='party-pkmn-types'>
+                                    { pokemonData['type1']
+                                        ? <img src={ require(`../img/types/gen8/${pokemonData['type1']}.png`) }/>
+                                        : null
+                                    }
+                                    { pokemonData['type2']
+                                        ? <img src={ require(`../img/types/gen8/${pokemonData['type2']}.png`) }/>
+                                        : null
+                                    }
+                                </div>
                             </div>
                             { this.props.display == 'party'
                                 ? <div className='return-placeholder'> </div>
                                 : <div className='return' onClick={this.handleReturnClick}></div>}
                         </div>
                         <div className='options'>
-                            <div className='party-pkmn-types'>
-                                { pokemonData['type1']
-                                    ? <img src={ require(`../img/types/gen8/${pokemonData['type1']}.png`) }/>
-                                    : null
-                                }
-                                { pokemonData['type2']
-                                    ? <img src={ require(`../img/types/gen8/${pokemonData['type2']}.png`) }/>
-                                    : null
-                                }
-                            </div>
                             <div className='ability'>
                                 <p className='ability-label'>Ability</p>
                                 <select className='ability-select' onChange={this.handleAbilitySelect}>
@@ -125,6 +143,12 @@ class PartyPkmn extends React.Component {
                                 >
                                     <p>{itemLabel}</p>
                                 </div>
+                            </div>
+                            <div className='tera'>
+                                <p className='tera-label'>Tera</p>
+                                <select className='tera-select' onChange={this.handleTeraSelect}>
+                                    {typeOptions}
+                                </select>
                             </div>
                         </div>
                         <Moves slot={this.props.slot}

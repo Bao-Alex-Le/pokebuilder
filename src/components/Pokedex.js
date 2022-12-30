@@ -20,7 +20,7 @@ class Pokedex extends React.Component {
                 search: '',
                 sort: 'id asc',
                 filters: {
-                    /* Generations */ '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true,
+                    /* Generations */ '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true, '9': true,
                     /*    Types    */ 'Normal': true, 'Fire': true, 'Water': true, 'Electric': true, 'Grass': true, 'Ice': true, 'Fighting': true, 'Poison': true, 'Ground': true, 'Flying': true, 'Psychic': true, 'Bug': true, 'Rock': true, 'Ghost': true, 'Dragon': true, 'Dark': true, 'Steel': true, 'Fairy': true
                 }
             },
@@ -66,7 +66,7 @@ class Pokedex extends React.Component {
     handleSelectAllClick() {
         const newFilter = this.state.sorting;
         newFilter.filters = {
-            /* Generations */ '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true,
+            /* Generations */ '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true, '9': true,
             /*    Types    */ 'Normal': true, 'Fire': true, 'Water': true, 'Electric': true, 'Grass': true, 'Ice': true, 'Fighting': true, 'Poison': true, 'Ground': true, 'Flying': true, 'Psychic': true, 'Bug': true, 'Rock': true, 'Ghost': true, 'Dragon': true, 'Dark': true, 'Steel': true, 'Fairy': true
         };
         this.setState({ filters: newFilter });
@@ -75,7 +75,7 @@ class Pokedex extends React.Component {
     handleClearAllClick() {
         const newFilter = this.state.sorting;
         newFilter.filters = {
-            /* Generations */ '1': false, '2': false, '3': false, '4': false, '5': false, '6': false, '7': false, '8': false,
+            /* Generations */ '1': false, '2': false, '3': false, '4': false, '5': false, '6': false, '7': false, '8': false, '9': false,
             /*    Types    */ 'Normal': false, 'Fire': false, 'Water': false, 'Electric': false, 'Grass': false, 'Ice': false, 'Fighting': false, 'Poison': false, 'Ground': false, 'Flying': false, 'Psychic': false, 'Bug': false, 'Rock': false, 'Ghost': false, 'Dragon': false, 'Dark': false, 'Steel': false, 'Fairy': false
         };
         this.setState({ filters: newFilter });
@@ -190,7 +190,7 @@ function SearchBar(props) {
 
     // generating list of <FilterButton/> components to filter by pokemon generation
     // genFilterInfo contains data for button in form [filtervalue, label]
-    const genFilterInfo = [['1', 'I'], ['2', 'II'], ['3', 'III'], ['4', 'IV'], ['5', 'V'], ['6', 'VI'], ['7', 'VII'], ['8', 'VIII']];
+    const genFilterInfo = [['1', 'I'], ['2', 'II'], ['3', 'III'], ['4', 'IV'], ['5', 'V'], ['6', 'VI'], ['7', 'VII'], ['8', 'VIII'], ['9', 'IX']];
     const genFilterList = genFilterInfo.map(genInfo => {
         const key = keyVal;
         keyVal += 1;
@@ -339,7 +339,8 @@ const sortCategories = {
             {title: 'Generation V',    value:5},
             {title: 'Generation VI',   value:6},
             {title: 'Generation VII',  value:7},
-            {title: 'Generation VIII', value:8}
+            {title: 'Generation VIII', value:8},
+            {title: 'Generation IX', value:9}
         ],
         sortDex: function(dex, order) {
             let categories = [...this.categories];
