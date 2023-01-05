@@ -27,6 +27,9 @@ class Pokedex extends React.Component {
             sbh: 0 // Search.Bar.Height to calculate height of pokedex
         }
 
+        this.generations = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        this.types = ['Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy'];
+
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.handleSortChange = this.handleSortChange.bind(this);
         this.handleFilterChange = this.handleFilterChange.bind(this);
@@ -63,24 +66,31 @@ class Pokedex extends React.Component {
         this.setState({ filters: newFilter });
     }
 
-    handleSelectAllClick() {
+    handleSelectAllClick(category) {
         const newFilter = this.state.sorting;
-        newFilter.filters = {
-            /* Generations */ '1': true, '2': true, '3': true, '4': true, '5': true, '6': true, '7': true, '8': true, '9': true,
-            /*    Types    */ 'Normal': true, 'Fire': true, 'Water': true, 'Electric': true, 'Grass': true, 'Ice': true, 'Fighting': true, 'Poison': true, 'Ground': true, 'Flying': true, 'Psychic': true, 'Bug': true, 'Rock': true, 'Ghost': true, 'Dragon': true, 'Dark': true, 'Steel': true, 'Fairy': true
-        };
+
+        if (category == 'gen') {
+            this.generations.forEach(gen => newFilter.filters[gen] = true);
+        } else if (category == 'type') {
+            this.types.forEach(type => newFilter.filters[type] = true);
+        }
+        console.log(newFilter);
         this.setState({ filters: newFilter });
     }
 
-    handleClearAllClick() {
+    handleClearAllClick(category) {
         const newFilter = this.state.sorting;
-        newFilter.filters = {
-            /* Generations */ '1': false, '2': false, '3': false, '4': false, '5': false, '6': false, '7': false, '8': false, '9': false,
-            /*    Types    */ 'Normal': false, 'Fire': false, 'Water': false, 'Electric': false, 'Grass': false, 'Ice': false, 'Fighting': false, 'Poison': false, 'Ground': false, 'Flying': false, 'Psychic': false, 'Bug': false, 'Rock': false, 'Ghost': false, 'Dragon': false, 'Dark': false, 'Steel': false, 'Fairy': false
-        };
+
+        if (category == 'gen') {
+            this.generations.forEach(gen => newFilter.filters[gen] = false);
+        } else if (category == 'type') {
+            this.types.forEach(type => newFilter.filters[type] = false);
+        }
+        console.log(newFilter);
         this.setState({ filters: newFilter });
     }
 
+    // update search bar height
     handleSbhUpdate() {
         let sbh = $('.search-bar').height() + 10;
         this.setState({sbh: sbh});
@@ -186,6 +196,14 @@ function SearchBar(props) {
         props.onSbhUpdate();
     }
 
+    function handleSelectAllClick(e) {
+        props.onSelectAllClick(e.target.parentElement.classList[1]);
+    }
+
+    function handleClearAllClick(e) {
+        props.onClearAllClick(e.target.parentElement.classList[1]);
+    }
+
     let keyVal = 1;
 
     // generating list of <FilterButton/> components to filter by pokemon generation
@@ -258,15 +276,20 @@ function SearchBar(props) {
                             {genFilterList}
                         </div>
                     </div>
+                    <div className='filter-options gen'>
+                        <div onClick={handleSelectAllClick}>Select All</div>
+                        <div onClick={handleClearAllClick}>Clear All</div>
+                        <div onClick={handleShowFilter}>Close</div>
+                    </div>
                     <div>
                         <h4>Type</h4>
                         <div className='type-filters'>
                             {typeFilterList}
                         </div>
                     </div>
-                    <div className='filter-options'>
-                        <div onClick={props.onSelectAllClick}>Select All</div>
-                        <div onClick={props.onClearAllClick}>Clear All</div>
+                    <div className='filter-options type'>
+                        <div onClick={handleSelectAllClick}>Select All</div>
+                        <div onClick={handleClearAllClick}>Clear All</div>
                         <div onClick={handleShowFilter}>Close</div>
                     </div>
                 </div>

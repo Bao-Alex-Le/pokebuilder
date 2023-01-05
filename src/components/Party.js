@@ -16,10 +16,15 @@ class Party extends React.Component {
         }
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.handleSearchReset = this.handleSearchReset.bind(this);
     }
 
     handleSearchChange(query) {
         this.setState({ search: query.toLowerCase() });
+    }
+
+    handleSearchReset() {
+        this.setState({ search: '' })
     }
 
     render() {
@@ -60,6 +65,7 @@ class Party extends React.Component {
                         onItemClick={this.props.onItemClick}
                         onAbilitySelect={this.props.onAbilitySelect}
                         onTeraSelect={this.props.onTeraSelect}
+                        onSearchReset={this.handleSearchReset}
                     />
                 )
             });
@@ -91,6 +97,7 @@ class Party extends React.Component {
                         onItemClick={this.props.onItemClick}
                         onAbilitySelect={this.props.onAbilitySelect}
                         onTeraSelect={this.props.onTeraSelect}
+                        onSearchReset={this.handleSearchReset}
                     />
                     <Search handleSearch={this.handleSearchChange}/>
                     <List display={display['mode']} 

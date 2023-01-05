@@ -28,14 +28,17 @@ class PartyPkmn extends React.Component {
     }
 
     handlePartyPkmnClick(e) {
+        this.props.onSearchReset();
         this.props.onPartyPkmnClick(this.props.slot);
     }
 
     handleReturnClick(e) {
+        this.props.onSearchReset();
         this.props.onReturnClick();
     }
 
     handleRemoveClick(e) {
+        this.props.onSearchReset();
         this.props.onRemoveClick(this.props.slot);
     }
 

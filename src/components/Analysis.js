@@ -56,14 +56,16 @@ class Analysis extends React.Component {
     findPartyDefenses(party) {
         let defenses;
         if (party) {
-            defenses = party.map((pokemon, index) => {
-                if (!pokemon.name) return;
+            defenses = party.reduce((result, pokemon, index) => {
+                if (!pokemon.name) return result;
+                if (!this.state.party[index]) return result;
                 const stats = pokedex[pokemon.name];
                 const type1 = this.state.tera[index] ? pokemon.tera.toLowerCase() : stats.type1.toLowerCase();
                 const type2 = this.state.tera[index] ? null : stats.type2.toLowerCase();
 
                 if (!type2) {
-                    return [pokemon.name, typeChart[type1]];
+                    result.push([pokemon.name, typeChart[type1]])
+                    return result;
                 }
 
                 // Calculates and creates matchup table for pokemon with 2 types
@@ -75,8 +77,9 @@ class Analysis extends React.Component {
                     typeDefenses.push(type1defenses[i] * type2defenses[i]);
                 }
 
-                return [pokemon.name, typeDefenses];
-            });
+                result.push([pokemon.name, typeDefenses]);
+                return result;
+            }, []);
         } else {
             defenses = [];
         }
@@ -135,9 +138,12 @@ class Analysis extends React.Component {
             const typeIndex = typeIndices[type];
 
             // for each pokemon in party
-            Object.keys(party).forEach(slot => {
+            Object.keys(party).forEach((slot, index) => {
+                if (!this.state.party[index]) return;
                 const pokemon = party[slot]['name'];
                 const pokemonMoves = party[slot]['moves'];
+                const pkmnData = pokedex[pokemon];
+                const atkTypes = this.state.tera[index] ? [party[slot]['tera']] : [pkmnData['type1'], pkmnData['type2']];
 
                 // for each pokemon's move
                 if (pokemon) {
@@ -145,7 +151,7 @@ class Analysis extends React.Component {
                         if(pokemonMoves[moveSlot]) {
                             // calculate move damage against current type
                             const move = pokemonMoves[moveSlot];
-                            const movePower = calcMoveDamage(move, type);
+                            const movePower = calcMoveDamage(move, type, atkTypes);
 
                             // adding to offensive totals
                             if (movePower[1] > 1) {
@@ -157,11 +163,11 @@ class Analysis extends React.Component {
                             // check if move is currently best move against current type
                             const bestMove = offenseData.bestMoves[typeIndex] ? offenseData.bestMoves[typeIndex] : null;
                             if (!bestMove) {
-                                offenseData.bestMoves[typeIndex] = [pokemon, move];
+                                offenseData.bestMoves[typeIndex] = [pokemon, move, atkTypes, movePower[2]];
                             } else {
-                                const bestPower = calcMoveDamage(bestMove[1], type);
+                                const bestPower = calcMoveDamage(bestMove[1], type, bestMove[2]);
                                 if (movePower[0] > bestPower[0]) {
-                                    offenseData.bestMoves[typeIndex] = [pokemon, move];
+                                    offenseData.bestMoves[typeIndex] = [pokemon, move, atkTypes, movePower[2]];
                                 }
                             }
                         }
@@ -184,12 +190,9 @@ class Analysis extends React.Component {
             if (pkmn) return pkmn.name;
         });
 
-        const calcParty = party.filter((pokemon, index) => {
-            if (this.state.party[index]) return true;
-        });
-        const defenses = this.findPartyDefenses(calcParty);
+        const defenses = this.findPartyDefenses(party);
         const defenseTotals = this.findDefenseTotals(defenses);
-        const offenseData = this.findOffensiveCoverage(calcParty);
+        const offenseData = this.findOffensiveCoverage(party);
 
         return (
             <div className='analysis-container-outer'>
@@ -502,13 +505,17 @@ function DefenseTotalRow(props) {
 }
 
 // calculates move damage, taking into account things like STAB (same type attack bonus)
-function calcMoveDamage(move, defType) {
+function calcMoveDamage(move, defType, atkTypes) {
     const moveData = moves[move];
     const power = moveData['power'];
-    const typeMultiplier = typeChart[defType][typeIndices[moveData['type'].toLowerCase()]];
-    const effectivePower = Math.round(parseInt(power) * typeMultiplier);
+    const moveType = moveData['type'];
 
-    return [effectivePower, typeMultiplier];
+    const stab = atkTypes.findIndex(type => type == moveType) >= 0 ? 1.5 : 1;
+    const typeMultiplier = typeChart[defType][typeIndices[moveData['type'].toLowerCase()]];
+    const effectivePower = parseInt(power) ? Math.round(parseInt(power) * typeMultiplier * stab) : 0;
+
+    const boost = stab > 1 ? true : false;
+    return [effectivePower, typeMultiplier, boost];
 }
 
 /**
@@ -576,12 +583,12 @@ function BestMoves(props) {
         if (bestMoves[i]) {
             const pokemon = bestMoves[i][0];
             const move = moves[bestMoves[i][1]];
+            const boost = bestMoves[i][3];
             const defType = typeList[i];
             const defTypeCap = defType[0].toUpperCase() + defType.slice(1); 
     
             // move data
             const name = move['name'];
-            const fname = move['fname'];
             const type = move['type'];
             const power = move['power'];
             const acc = move['accuracy'];
@@ -593,7 +600,7 @@ function BestMoves(props) {
             let multiplierClass = 'best-multiplier yellow'; 
             if (multiplier < 1) multiplierClass = 'best-multiplier double';
             else if (multiplier > 1) multiplierClass = 'best-multiplier limegreen';
-            const effectivePower = calcMoveDamage(fname, defType);
+            const powClass = boost ? 'best-pow limegreen' : 'best-pow'; 
 
             const defTypeStyle = {
                 'height': '22px',
@@ -622,7 +629,7 @@ function BestMoves(props) {
                         <div className='best-move-stats'>
                             <span className='stat pow'>
                                 <span className='text pow'>Pwr.</span>
-                                <span className='best-pow'>{power}</span>
+                                <span className={powClass}>{power}</span>
                             </span>
                             <span className='stat acc'>
                                 <span className='text acc'>Acc.</span>
